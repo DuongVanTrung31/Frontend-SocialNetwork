@@ -1,0 +1,42 @@
+<div class="log-reg-area reg">
+  <h2 class="log-title">Đăng ký tài khoản</h2>
+  <p>
+    Hãy đăng ký tài khoản bên dưới để tham gia cùng cộng đồng chúng tôi
+  </p>
+  <form>
+    <div class="form-group">
+      <input type="text" required="required" id="fullName">
+      <label class="control-label" for="fullName">Họ &amp; tên</label><i class="mtrl-select"></i>
+    </div>
+    <div class="form-group">
+      <input type="text" required="required" id="username">
+      <label class="control-label" for="username">Tên tài khoản</label><i class="mtrl-select"></i>
+    </div>
+    <div class="form-group">
+      <input type="password" required="required" id="password">
+      <label class="control-label" for="password">Mật khẩu</label><i class="mtrl-select"></i>
+    </div>
+    <ng-template>
+      <div class="form-group">
+        <input type="password" required="required" id="Repassword">
+        <label class="control-label" for="Repassword">Xác nhận mật khẩu</label><i class="mtrl-select"></i>
+      </div>
+    </ng-template>
+    <div class="form-group">
+      <input type="text" required="required" id="email">
+      <label class="control-label" for="email"><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c29010d05002c">Email</a></label><i class="mtrl-select"></i>
+    </div>
+    <div class="form-group">
+      <input type="text" required="required" id="phone">
+      <label class="control-label" for="phone">Số điện thoại</label><i class="mtrl-select"></i>
+    </div>
+    <div class="form-group">
+      <input type="date" required="required" id="DOB">
+      <label class="control-label" for="DOB">Ngày sinh</label><i class="mtrl-select"></i>
+    </div>
+    <a routerLink="/login" class="already-have">Bạn đã có tài khoản</a>
+    <div class="submit-btns">
+      <button class="mtr-btn signup" type="button"><span>Đăng ký</span></button>
+    </div>
+  </form>
+</div>
