@@ -3,40 +3,38 @@
   <p>
     Hãy đăng ký tài khoản bên dưới để tham gia cùng cộng đồng chúng tôi
   </p>
-  <form>
+  <form [formGroup]="formRegister" (ngSubmit)="onRegister()" autocomplete="off">
     <div class="form-group">
-      <input type="text" required="required" id="fullName">
-      <label class="control-label" for="fullName">Họ &amp; tên</label><i class="mtrl-select"></i>
-    </div>
-    <div class="form-group">
-      <input type="text" required="required" id="username">
+      <input type="text" required="required" id="username" formControlName="username">
       <label class="control-label" for="username">Tên tài khoản</label><i class="mtrl-select"></i>
+      <span id="error-username" style="color: red"></span>
     </div>
     <div class="form-group">
-      <input type="password" required="required" id="password">
+      <input type="password" required="required" id="password" formControlName="password">
       <label class="control-label" for="password">Mật khẩu</label><i class="mtrl-select"></i>
     </div>
-    <ng-template>
-      <div class="form-group">
-        <input type="password" required="required" id="Repassword">
-        <label class="control-label" for="Repassword">Xác nhận mật khẩu</label><i class="mtrl-select"></i>
-      </div>
-    </ng-template>
     <div class="form-group">
-      <input type="text" required="required" id="email">
-      <label class="control-label" for="email"><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6c29010d05002c">Email</a></label><i class="mtrl-select"></i>
+      <input type="password" required="required" id="Repassword" formControlName="confirmPassword">
+      <label class="control-label" for="Repassword">Xác nhận mật khẩu</label><i class="mtrl-select"></i>
+      <span id="error-repass" style="color: red"></span>
     </div>
     <div class="form-group">
-      <input type="text" required="required" id="phone">
+      <input type="text" required="required" id="email" formControlName="email">
+      <label class="control-label" for="email">Email</label><i
+      class="mtrl-select"></i>
+      <span id="error-email" style="color: red;"></span>
+    </div>
+    <div class="form-group">
+      <input type="text" required="required" id="phone" formControlName="phone">
       <label class="control-label" for="phone">Số điện thoại</label><i class="mtrl-select"></i>
     </div>
     <div class="form-group">
-      <input type="date" required="required" id="DOB">
+      <input type="date" required="required" id="DOB" formControlName="dateOfBirth">
       <label class="control-label" for="DOB">Ngày sinh</label><i class="mtrl-select"></i>
     </div>
-    <a routerLink="/login" class="already-have">Bạn đã có tài khoản</a>
+    <a routerLink="" class="already-have">Bạn đã có tài khoản</a>
     <div class="submit-btns">
-      <button class="mtr-btn signup" type="button"><span>Đăng ký</span></button>
+      <button class="mtr-btn signup" type="submit"><span>Đăng ký</span></button>
     </div>
   </form>
 </div>
