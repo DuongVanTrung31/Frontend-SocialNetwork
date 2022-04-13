@@ -621,16 +621,9 @@ header.sticky {
     width: 100%;
 }
 
-.log-reg-area.reg {
-    display: none;
-}
 
 .login-reg-bg.show .log-reg-area.reg {
     display: block;
-}
-
-.login-reg-bg.show .log-reg-area.sign {
-    display: none;
 }
 
 
