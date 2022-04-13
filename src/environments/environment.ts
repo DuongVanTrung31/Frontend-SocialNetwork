@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  urlApi: "http://localhost:8080/api"
+  urlApi: "http://localhost:8080/api",
+  // urlApi: "http://192.168.3.1:8080/api",
+  // urlApi: "http://192.168.137.1:8080/api"
 };
 
 /*

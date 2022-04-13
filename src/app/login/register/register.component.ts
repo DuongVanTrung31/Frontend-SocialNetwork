@@ -61,6 +61,10 @@ export class RegisterComponent implements OnInit {
               // @ts-ignore
               document.querySelector("#error-repass").innerHTML = "Mật khẩu không trùng nhau";
               break;
+            case 702:
+              // @ts-ignore
+              document.querySelector("#error-email").innerHTML = "Email đã tồn tại";
+              break;
           }
         })
   }

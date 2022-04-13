@@ -39,7 +39,6 @@ export class SignupComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log(data)
           // @ts-ignore
           localStorage.setItem('ACCESS_TOKEN', data.token);
           // @ts-ignore

@@ -4,12 +4,18 @@ import { CommonModule } from '@angular/common';
 import { HomepageRoutingModule } from './homepage-routing.module';
 import { HomepageComponent } from './homepage.component';
 import {NavbarComponent} from "../common/navbar/navbar.component";
+import {SidebarComponent} from "../common/sidebar/sidebar.component";
+import { NewfeedsComponent } from './newfeeds/newfeeds.component';
+import { PostComponent } from './post/post.component';
 
 
 @NgModule({
   declarations: [
     HomepageComponent,
-    NavbarComponent
+    NavbarComponent,
+    SidebarComponent,
+    NewfeedsComponent,
+    PostComponent
   ],
   imports: [
     CommonModule,
