@@ -1,0 +1,31 @@
+<div class="login-container">
+
+  <header class="login__header">
+    <div class="login__header__left">
+      <img alt="logo" src="assets/fb-logo-1.jpg">
+      <h2>Facebook helps you connect and share with the people in your life.</h2>
+    </div>
+    <div class="login__header__right">
+      <mat-card class="login__header__right__card">
+        <mat-card-content class="login__header__right__card__content">
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+            <input name="username" placeholder="Tài khoản" type="text" formControlName="username">
+            <input name="password" placeholder="Mật khẩu" type="text" formControlName="password">
+            <button [disabled]="loginForm.invalid || loginForm.pending"
+                    class="login-button"
+                    *ngIf="!loginForm.pending"
+                    type="submit">Đăng nhập
+            </button>
+          </form>
+          <a>Quên mật khẩu</a>
+          <hr>
+          <button class="create-account" (click)="openRegister()">Bạn không có tài khoản</button>
+        </mat-card-content>
+
+      </mat-card>
+
+    </div>
+
+  </header>
+
+</div>

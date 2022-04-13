@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validator, Validators} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {RegisterDto} from "../../models/dto/register-dto";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {first} from "rxjs";
-import {RegisterDto} from "../../models/dto/register-dto";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-register',
@@ -20,16 +21,17 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    public dialogRef: MatDialogRef<RegisterComponent>
   ) {
   }
 
   ngOnInit() {
     this.formRegister = this.formBuilder.group({
-      username: ['',Validators.required],
-      password: ['',Validators.required],
-      confirmPassword:['',Validators.required],
-      email: ['',Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+      email: ['', Validators.required],
       phone: [''],
       dateOfBirth: ['']
     });

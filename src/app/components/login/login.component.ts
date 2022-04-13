@@ -1,8 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AuthenticationService} from "../services/authentication.service";
+import {AuthenticationService} from "../../services/authentication.service";
 import {first} from "rxjs";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {RegisterComponent} from "../register/register.component";
+
 
 @Component({
   selector: 'app-login',
@@ -14,15 +17,16 @@ export class LoginComponent implements OnInit {
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   })
-   returnUrl!: string;
-   submitted = false;
-   loading = false;
+  returnUrl!: string;
+  submitted = false;
+  loading = false;
 
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
-              private authService: AuthenticationService) {
-    if(localStorage.getItem("ACCESS_TOKEN") != null) {
+              private authService: AuthenticationService,
+              private matDialog: MatDialog) {
+    if (localStorage.getItem("ACCESS_TOKEN") != null) {
       this.router.navigate(['/']).then()
     }
   }
@@ -55,5 +59,11 @@ export class LoginComponent implements OnInit {
           alert("Tài khoản của bạn đã bị khoá hoặc sai mật khẩu!");
           this.loading = false;
         });
+  }
+
+  openRegister() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.role = "dialog"
+    this.matDialog.open(RegisterComponent, dialogConfig)
   }
 }

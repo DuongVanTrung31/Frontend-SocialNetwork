@@ -1,0 +1,133 @@
+
+/*.login-container {*/
+/*  background-color: #F0F2F5;*/
+/*  height: 100vh;*/
+/*  width: 100vw;*/
+/*  position: relative;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*}*/
+
+/*.login__header {*/
+/*  height: 70vh;*/
+/*  width: 100%;*/
+/*  display: flex;*/
+/*  gap: 20px;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*}*/
+
+/*.login__header__left {*/
+/*  width: 580px;*/
+/*  padding-right: 32px;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  align-items: flex-start;*/
+/*}*/
+
+/*.login__header img {*/
+/*  height: 56px;*/
+/*  margin-right: 32px;*/
+/*  margin-bottom: 20px;*/
+/*}*/
+
+/*.login__header h2 {*/
+/*  font-size: 28px;*/
+/*  font-weight: normal;*/
+/*  line-height: 32px;*/
+/*  width: 500px;*/
+/*}*/
+
+
+/*.login__header__right__card {*/
+/*  height: 380px;*/
+/*  width: 400px;*/
+/*  padding: 10px;*/
+/*  border-radius: 10px;*/
+/*  margin-bottom: 30px;*/
+/*}*/
+
+/*.login__header__right__content {*/
+/*  padding: 5px;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*}*/
+
+/*.login-form {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  gap: 10px;*/
+/*}*/
+
+/*.login-form input {*/
+/*  padding: 20px;*/
+/*  outline: none;*/
+/*  border: 1px solid lightgray;*/
+/*  border-radius: 5px;*/
+/*}*/
+
+/*.login-form ::placeholder {*/
+/*  font-size: 16px;*/
+/*  font-weight: normal;*/
+/*}*/
+
+/*.login-button {*/
+/*  background-color: #1877F2;*/
+/*  padding: 15px;*/
+/*  outline: none;*/
+/*  border: none;*/
+/*  border-radius: 7px;*/
+/*  color: white;*/
+/*  font-size: 18px;*/
+/*  font-weight: bold;*/
+/*  margin-bottom: 20px;*/
+/*  cursor: pointer;*/
+/*}*/
+
+
+/*a {*/
+/*  text-decoration: none;*/
+/*  color:  #42B72A;*/
+/*  text-align: center;*/
+/*  border-bottom: 1px solid lightgray;*/
+/*  margin-bottom: 20px;*/
+/*  padding-bottom: 20px;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.create-account {*/
+/*  background-color: #42B72A;*/
+/*  display: inline-block;*/
+/*  align-self: center;*/
+/*  outline: none;*/
+/*  border: none;*/
+/*  border-radius: 7px;*/
+/*  padding: 15px 30px;*/
+/*  color: white;*/
+/*  font-size: 18px;*/
+/*  font-weight: bold;*/
+/*  cursor: pointer;*/
+
+
+/*}*/
+
+
+/*.tagline {*/
+/*  text-align: center;*/
+/*  letter-spacing: 0.7px;*/
+/*}*/
+
+
+/*.login__footer {*/
+/*  height: 30vh;*/
+/*  align-self: flex-end;*/
+/*  width: 100%;*/
+/*  background-color: white;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*}*/
+
+/*.login__footer img {*/
+/*}*/
+
