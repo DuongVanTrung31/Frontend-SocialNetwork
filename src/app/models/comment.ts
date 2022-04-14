@@ -3,8 +3,9 @@ import {LikeComment} from "./like-comment";
 
 export interface Comment {
   id?: number,
-  content?: string,
+  content: string,
   user: User,
   parentId?: number,
+  createdDate? :Date,
   likeCommentList: LikeComment[]
 }

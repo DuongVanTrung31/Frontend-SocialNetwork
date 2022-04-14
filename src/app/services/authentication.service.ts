@@ -6,6 +6,7 @@ import {UserToken} from "../models/dto/user-token";
 
 
 
+
 const API = `${environment.urlApi}/auth/`
 
 
@@ -39,6 +40,10 @@ export class AuthenticationService {
 
   logout() {
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('ID');
+    localStorage.removeItem('USERNAME');
+    localStorage.removeItem('ROLE');
+    localStorage.removeItem('ACCESS_TOKEN');
     // @ts-ignore
     this.currentUserSubject.next(null);
   }

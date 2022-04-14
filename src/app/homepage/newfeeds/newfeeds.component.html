@@ -5,7 +5,8 @@
     </figure>
     <div class="newpst-input">
       <form>
-        <textarea rows="1" placeholder="{{user.fullName}} , bạn đang nghĩ gì thế ?" readonly (click)="onPostDialog()"></textarea>
+        <textarea rows="1" placeholder="{{user.fullName}} , bạn đang nghĩ gì thế ?" readonly
+                  (click)="onPostDialog()"></textarea>
         <div class="attachments">
           <ul>
             <li>
@@ -37,7 +38,7 @@
               {{feed.content}}
             </p>
           </div>
-          <img src="{{feed.image}}" alt="">
+          <img style="border: solid 1px" src="{{feed.image}}" alt="">
           <div class="we-video-info">
             <ul>
               <li>
@@ -58,39 +59,39 @@
       </div>
       <div class="coment-area">
         <ul class="we-comet">
-          <li *ngFor="let c of feed.commentList">
+          <li *ngFor="let comment of feed.commentList">
             <div class="comet-avatar">
-              <img src="{{c.user.avatarUrl}}" alt="">
+              <img src="{{comment.user.avatarUrl}}" alt="">
             </div>
             <div class="we-comment">
               <div class="coment-head">
-                <h5><a href="" title="">{{c.user.fullName}}</a></h5>
-                <span>1 year ago</span>
+                <h5><a href="" title="">{{comment.user.fullName}}</a></h5>
+                <span>{{comment.createdDate}}</span>
                 <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
               </div>
-              <p>{{c.content}}</p>
+              <p>{{comment.content}}</p>
             </div>
-<!--            <ul>-->
-<!--              <li>-->
-<!--                <div class="comet-avatar">-->
-<!--                  <img src="" alt="">-->
-<!--                </div>-->
-<!--                <div class="we-comment">-->
-<!--                  <div class="coment-head">-->
-<!--                    <h5><a href="" title="">alexendra dadrio</a></h5>-->
-<!--                    <span>1 month ago</span>-->
-<!--                    <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>-->
-<!--                  </div>-->
-<!--                  <p>yes, really very awesome car i see the features of this car in the official website of <a-->
-<!--                    href="#" title="">#Mercedes-Benz</a> and really impressed :-)</p>-->
-<!--                </div>-->
-<!--              </li>-->
-<!--            </ul>-->
+            <!--            <ul>-->
+            <!--              <li>-->
+            <!--                <div class="comet-avatar">-->
+            <!--                  <img src="" alt="">-->
+            <!--                </div>-->
+            <!--                <div class="we-comment">-->
+            <!--                  <div class="coment-head">-->
+            <!--                    <h5><a href="" title="">alexendra dadrio</a></h5>-->
+            <!--                    <span>1 month ago</span>-->
+            <!--                    <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>-->
+            <!--                  </div>-->
+            <!--                  <p>yes, really very awesome car i see the features of this car in the official website of <a-->
+            <!--                    href="#" title="">#Mercedes-Benz</a> and really impressed :-)</p>-->
+            <!--                </div>-->
+            <!--              </li>-->
+            <!--            </ul>-->
           <li>
             <a href="#" title="" class="showmore underline">more comments</a>
           </li>
           <li class="post-comment">
-            <app-comment [user]="user" (commentEvent)="handleComment($event)"></app-comment>
+            <app-comment [user]="user" (commentEvent)="handleComment(feed.id,$event)"></app-comment>
           </li>
         </ul>
       </div>

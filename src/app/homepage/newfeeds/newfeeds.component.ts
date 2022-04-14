@@ -5,6 +5,7 @@ import {Post} from "../../models/post";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {PostComponent} from "../post/post.component";
 import {Comment} from "../../models/comment";
+import {CommentService} from "../../services/comment.service";
 
 @Component({
   selector: 'app-newfeeds',
@@ -13,19 +14,21 @@ import {Comment} from "../../models/comment";
 })
 export class NewfeedsComponent implements OnInit {
   @Input() user!: User;
-
+  idUser = parseInt(<string>localStorage.getItem("ID"))
   newFeeds!: Post[]
+
   constructor(private postService: PostService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private commentService: CommentService) {
+  }
 
   ngOnInit(): void {
     this.getNewFeeds()
   }
 
   getNewFeeds() {
-    this.postService.getNewFeeds().subscribe((data) => {
+    this.postService.getNewFeeds(this.idUser).subscribe((data) => {
       this.newFeeds = data;
-      console.log(this.newFeeds)
     })
   }
 
@@ -34,14 +37,15 @@ export class NewfeedsComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(PostComponent,dialogConfig)
-      .afterClosed().subscribe(() =>{
+    this.dialog.open(PostComponent, dialogConfig)
+      .afterClosed().subscribe(() => {
         this.getNewFeeds()
       }
     )
   }
 
-  handleComment($event: Comment) {
-
+  handleComment(pid: number | undefined, $event: Comment) {
+    console.log($event);
+    this.commentService.saveComment(pid, $event).subscribe(() => this.getNewFeeds())
   }
 }

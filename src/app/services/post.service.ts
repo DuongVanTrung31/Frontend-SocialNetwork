@@ -20,7 +20,7 @@ export class PostService {
     return this.http.post<any>(API + `/post/${id}`, post);
   }
 
-  getNewFeeds(): Observable<any> {
-    return this.http.get<any>(API + "/post/status")
+  getNewFeeds(uid: number): Observable<any> {
+    return this.http.get<any>(API + `/post/newFeeds/${uid}`)
   }
 }

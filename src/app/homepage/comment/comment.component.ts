@@ -10,7 +10,7 @@ import {Comment} from "../../models/comment";
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
-  @Input() user!: User
+  @Input() user!: User;
   @Output() commentEvent = new EventEmitter<Comment>()
   formComment: FormGroup = new FormGroup({
     content: new FormControl("")
@@ -26,7 +26,6 @@ export class CommentComponent implements OnInit {
       user: this.user,
       likeCommentList: []
     }
-    console.log(comment)
     this.commentEvent.emit(comment);
     this.formComment.reset();
   }
