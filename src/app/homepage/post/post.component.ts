@@ -1,10 +1,9 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import {User} from "../../models/user";
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PostService} from "../../services/post.service";
-import {Post} from "../../models/post";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-post',
@@ -12,23 +11,25 @@ import {Post} from "../../models/post";
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  @Input() user!: User;
   idUser = parseInt(<string>localStorage.getItem('ID'));
   selectedImage: any = null;
   imageUrl: string = "";
   formPost!: FormGroup;
   @ViewChild('uploadFile', {static: true}) public imageDom: ElementRef | undefined
+  selected: string = "PUBLIC";
+  typeStatus: string = "Đăng bài viết";
 
   constructor(private storage: AngularFireStorage,
               private _fb: FormBuilder,
-              private postService: PostService) {
+              private postService: PostService,
+              public dialogRef: MatDialogRef<PostComponent>) {
   }
 
   ngOnInit(): void {
     this.formPost = this._fb.group({
-      content:[''],
+      content:['', Validators.required],
       image:[''],
-      status: [''],
+      status: ['', Validators.required],
     })
   }
 

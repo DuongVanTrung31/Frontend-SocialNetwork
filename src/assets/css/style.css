@@ -1203,6 +1203,7 @@ header.sticky {
 .newpst-input textarea {
     float: left;
     width: 100%;
+    cursor: pointer;
 }
 .attachments {
     border: 1px solid #eee;

@@ -1,35 +1,34 @@
-<div class="central-meta">
-  <div class="new-postbox">
-    <figure>
-      <img src="{{user.avatarUrl}}" alt="">
-    </figure>
-    <div class="newpst-input">
-      <form [formGroup]="formPost" (ngSubmit)="onPost()">
-        <textarea rows="2" placeholder="Bạn đang nghĩ gì" formControlName="content"></textarea>
-        <div class="attachments">
-          <ul>
-            <li>
-              <label for="status">Chế độ:
-                <select formControlName="status" id="status">
-                  <option value="PUBLIC">Công khai</option>
-                  <option value="FRIENDS">Bạn bè</option>
-                  <option value="PRIVATE">Chỉ mình tôi</option>
-                </select>
-              </label>
-            </li>
-            <li>
-              <i class="fa fa-image"></i>
-              <label class="fileContainer">
-                <input #uploadFile type="file" (change)="uploadImage()" >
-              </label>
-            </li>
-            <li>
-              <button type="submit">Đăng</button>
-            </li>
-          </ul>
-        </div>
-        <img [src]="imageUrl" alt="">
-      </form>
+<div class="newpst-input">
+  <h1 mat-dialog-title>{{typeStatus}}</h1>
+  <form [formGroup]="formPost" (ngSubmit)="onPost()">
+    <textarea rows="2" placeholder="Bạn đang nghĩ gì" formControlName="content"></textarea>
+    <div class="attachments">
+      <ul>
+        <li>
+          <label for="status">Chế độ:
+            <select formControlName="status" id="status">
+              <option value="PUBLIC">Công khai</option>
+              <option value="FRIENDS">Bạn bè</option>
+              <option value="PRIVATE">Chỉ mình tôi</option>
+            </select>
+          </label>
+        </li>
+        <li>
+          <i class="fa fa-image"></i>
+          <label class="fileContainer">
+            <input #uploadFile type="file" (change)="uploadImage()">
+          </label>
+        </li>
+      </ul>
     </div>
-  </div>
+    <ng-container *ngIf="imageUrl!= ''">
+      <div align="center" style="height: 300px; width: 100%; margin-top: 20px">
+        <img [src]="imageUrl" alt="" style="width: 100%; height: 100%">
+      </div>
+    </ng-container>
+    <div mat-dialog-actions [align]="'end'" style="margin-right: 40px; padding-right: 30px">
+      <button mat-raised-button color="accent" mat-dialog-close>Thoát</button>
+      <button type="submit" mat-raised-button color="warn" [disabled]="formPost.invalid">Đăng</button>
+    </div>
+  </form>
 </div>

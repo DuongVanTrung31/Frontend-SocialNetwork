@@ -2,6 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../../models/user";
 import {PostService} from "../../services/post.service";
 import {Post} from "../../models/post";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {PostComponent} from "../post/post.component";
+import {Comment} from "../../models/comment";
 
 @Component({
   selector: 'app-newfeeds',
@@ -10,8 +13,10 @@ import {Post} from "../../models/post";
 })
 export class NewfeedsComponent implements OnInit {
   @Input() user!: User;
+
   newFeeds!: Post[]
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getNewFeeds()
@@ -19,8 +24,24 @@ export class NewfeedsComponent implements OnInit {
 
   getNewFeeds() {
     this.postService.getNewFeeds().subscribe((data) => {
-      console.log(data);
-      this.newFeeds = data
+      this.newFeeds = data;
+      console.log(this.newFeeds)
     })
+  }
+
+  onPostDialog() {
+    const dialogConfig = new MatDialogConfig()
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(PostComponent,dialogConfig)
+      .afterClosed().subscribe(() =>{
+        this.getNewFeeds()
+      }
+    )
+  }
+
+  handleComment($event: Comment) {
+
   }
 }

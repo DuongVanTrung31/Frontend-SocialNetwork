@@ -1,6 +1,6 @@
 import {User} from "./user";
 
-export interface LikePost {
+export interface LikeComment {
   id?: number,
   user: User
 }

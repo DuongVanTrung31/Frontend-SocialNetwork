@@ -7,9 +7,9 @@ export interface Post {
   content?:string,
   image?:string,
   createdDate : Date,
-  updatedDate ?:Date,
+  updatedDate :Date,
   status?:string,
   user: User,
-  commentList?: Comment[],
-  likePostList?: LikePost[]
+  commentList: Comment[],
+  likePostList: LikePost[]
 }
