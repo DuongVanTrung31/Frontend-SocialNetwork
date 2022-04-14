@@ -15,6 +15,7 @@ import {CommentService} from "../../services/comment.service";
 export class NewfeedsComponent implements OnInit {
   @Input() user!: User;
   idUser = parseInt(<string>localStorage.getItem("ID"))
+  @Input() typePage!: string;
   newFeeds!: Post[]
 
   constructor(private postService: PostService,
@@ -23,12 +24,22 @@ export class NewfeedsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getNewFeeds()
+    if (this.typePage == "newfeeds") {
+      this.getNewFeeds()
+    } else if (this.typePage == "timeline") {
+      this.getTimeLine()
+    }
   }
 
   getNewFeeds() {
     this.postService.getNewFeeds(this.idUser).subscribe((data) => {
       this.newFeeds = data;
+    })
+  }
+
+  getTimeLine() {
+    this.postService.getTimeLine(this.idUser).subscribe((data) => {
+      this.newFeeds = data
     })
   }
 
@@ -39,13 +50,22 @@ export class NewfeedsComponent implements OnInit {
     dialogConfig.width = "60%";
     this.dialog.open(PostComponent, dialogConfig)
       .afterClosed().subscribe(() => {
-        this.getNewFeeds()
+        if (this.typePage == "newfeeds") {
+          this.getNewFeeds()
+        } else if (this.typePage == "timeline") {
+          this.getTimeLine()
+        }
       }
     )
   }
 
   handleComment(pid: number | undefined, $event: Comment) {
-    console.log($event);
-    this.commentService.saveComment(pid, $event).subscribe(() => this.getNewFeeds())
+    this.commentService.saveComment(pid, $event).subscribe(() => {
+      if (this.typePage == "newfeeds") {
+        this.getNewFeeds()
+      } else if (this.typePage == "timeline") {
+        this.getTimeLine()
+      }
+    })
   }
 }

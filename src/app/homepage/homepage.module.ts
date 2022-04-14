@@ -14,6 +14,12 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {MatButtonModule} from "@angular/material/button";
 import { CommentComponent } from './comment/comment.component';
+import {TimelineComponent} from "./timeline/timeline.component";
+import { TopdetailComponent } from './topdetail/topdetail.component';
+import { InfoUserComponent } from './info-user/info-user.component';
+import { PasswordComponent } from './password/password.component';
+import { DetailUserComponent } from './detail-user/detail-user.component';
+import { UpdateInfoComponent } from './update-info/update-info.component';
 
 
 @NgModule({
@@ -23,7 +29,13 @@ import { CommentComponent } from './comment/comment.component';
     SidebarComponent,
     NewfeedsComponent,
     PostComponent,
-    CommentComponent
+    CommentComponent,
+    TimelineComponent,
+    TopdetailComponent,
+    InfoUserComponent,
+    PasswordComponent,
+    DetailUserComponent,
+    UpdateInfoComponent
   ],
   imports: [
     CommonModule,

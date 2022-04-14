@@ -3,6 +3,7 @@ import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {RegisterDto} from "../models/dto/register-dto";
+import {ChangePasswordForm} from "../models/dto/change-password-form";
 
 
 const API = `${environment.urlApi}`
@@ -18,7 +19,11 @@ export class UserService {
     return this.http.post<any>(API + "/auth/signup", registerDto);
   }
 
-  getUserInfo(id: number):Observable<any> {
-    return this.http.get<any>(API + `/userInfo/${id}`);
+  getUserInfo(uid: number):Observable<any> {
+    return this.http.get<any>(API + `/userInfo/${uid}`);
+  }
+
+  changePassword(uid: number,changePasswordForm:ChangePasswordForm): Observable<any> {
+    return this.http.put<any>(API + `/changePassword/${uid}`,changePasswordForm)
   }
 }

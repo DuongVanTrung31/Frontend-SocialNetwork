@@ -1,4 +1,5 @@
-<app-navbar [user]= "user"></app-navbar>
+<app-navbar [user]="user"></app-navbar>
+<app-topdetail [user]="user"></app-topdetail>
 <section>
   <div class="gap gray-bg">
     <div class="container-fluid">
@@ -8,14 +9,12 @@
             <div class="col-lg-3">
               <app-sidebar></app-sidebar>
             </div>
-            <div class="col-lg-6">
-              <app-newfeeds [user] = "user" [typePage]="'newfeeds'"></app-newfeeds>
+            <div class="col-lg-7">
+              <app-newfeeds [user]="user" [typePage]="'timeline'"></app-newfeeds>
             </div>
-            <div class="col-lg-3"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-

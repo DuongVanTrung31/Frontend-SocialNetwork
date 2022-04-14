@@ -642,7 +642,7 @@ header.sticky {
 .logo {
     display: inline-block;
     vertical-align: inherit;
-    width: 15%;
+    width: 4%;
     position: relative;
     z-index: 10;
 }

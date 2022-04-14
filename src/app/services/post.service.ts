@@ -23,4 +23,8 @@ export class PostService {
   getNewFeeds(uid: number): Observable<any> {
     return this.http.get<any>(API + `/post/newFeeds/${uid}`)
   }
+
+  getTimeLine(uid: number):Observable<any> {
+    return this.http.get<any>(API + `/post/${uid}`)
+  }
 }
