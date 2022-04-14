@@ -5,8 +5,16 @@
 export const environment = {
   production: false,
   urlApi: "http://localhost:8080/api",
-  // urlApi: "http://192.168.3.1:8080/api",
-  // urlApi: "http://192.168.137.1:8080/api"
+  firebaseConfig : {
+    apiKey: "AIzaSyAlYHsVD-aEB_8ItRVGSNd1ZUYEZMU9xmM",
+    authDomain: "demofrontend-eb956.firebaseapp.com",
+    databaseURL: "https://demofrontend-eb956-default-rtdb.firebaseio.com",
+    projectId: "demofrontend-eb956",
+    storageBucket: "demofrontend-eb956.appspot.com",
+    messagingSenderId: "855025725148",
+    appId: "1:855025725148:web:146ae1cc4e6a4fac64ce19",
+    measurementId: "G-L8ZVQ915WW"
+  }
 };
 
 /*

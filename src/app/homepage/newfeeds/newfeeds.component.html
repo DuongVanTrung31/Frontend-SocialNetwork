@@ -1,40 +1,37 @@
-<app-post></app-post>
+<app-post [user]="user"></app-post>
 <div class="loadMore">
-  <div class="central-meta item" style="display: inline-block;">
+  <div class="central-meta item"  *ngFor="let feed of newFeeds"  style="display: inline-block;">
     <div class="user-post">
       <div class="friend-info">
         <figure>
-          <img src="images/resources/friend-avatar10.jpg" alt="">
+          <img src="{{feed.user.avatarUrl}}" alt="">
         </figure>
         <div class="friend-name">
-          <ins><a href="time-line.html" title="">Janice Griffith</a></ins>
-          <span>published: june,2 2018 19:PM</span>
+          <ins><a href="" title="">{{feed.user.fullName}}</a></ins>
+          <span>{{feed.createdDate}}</span>
         </div>
         <div class="post-meta">
-          <img src="images/resources/user-post.jpg" alt="">
+          <div class="description">
+            <p>
+              {{feed.content}}
+            </p>
+          </div>
+          <img src="{{feed.image}}" alt="">
           <div class="we-video-info">
             <ul>
               <li>
                   <span class="views" data-toggle="tooltip" title="" data-original-title="views">
                     <i class="fa fa-eye"></i>
-                    <ins>1.2k</ins>
+                    <ins>{{feed.likePostList}}</ins>
                   </span>
               </li>
               <li>
                   <span class="comment" data-toggle="tooltip" title="" data-original-title="Comments">
                     <i class="fa fa-comments-o"></i>
-                    <ins>52</ins>
+                    <ins>{{feed.commentList}}</ins>
                   </span>
               </li>
             </ul>
-          </div>
-          <div class="description">
-
-            <p>
-              World's most beautiful car in Curabitur <a href="#" title="">#test drive booking !</a> the most
-              beatuiful car available in america and the saudia arabia, you can book your test drive by our official
-              website
-            </p>
           </div>
         </div>
       </div>
@@ -42,11 +39,11 @@
         <ul class="we-comet">
           <li>
             <div class="comet-avatar">
-              <img src="images/resources/comet-1.jpg" alt="">
+              <img src="" alt="">
             </div>
             <div class="we-comment">
               <div class="coment-head">
-                <h5><a href="time-line.html" title="">Jason borne</a></h5>
+                <h5><a href="" title="">Jason borne</a></h5>
                 <span>1 year ago</span>
                 <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
               </div>
@@ -56,11 +53,11 @@
             <ul>
               <li>
                 <div class="comet-avatar">
-                  <img src="images/resources/comet-2.jpg" alt="">
+                  <img src="" alt="">
                 </div>
                 <div class="we-comment">
                   <div class="coment-head">
-                    <h5><a href="time-line.html" title="">alexendra dadrio</a></h5>
+                    <h5><a href="" title="">alexendra dadrio</a></h5>
                     <span>1 month ago</span>
                     <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
                   </div>
@@ -74,7 +71,7 @@
           </li>
           <li class="post-comment">
             <div class="comet-avatar">
-              <img src="images/resources/comet-1.jpg" alt="">
+              <img src="" alt="">
             </div>
             <div class="post-comt-box">
               <form method="post">

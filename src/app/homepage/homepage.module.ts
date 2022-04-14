@@ -7,6 +7,7 @@ import {NavbarComponent} from "../common/navbar/navbar.component";
 import {SidebarComponent} from "../common/sidebar/sidebar.component";
 import { NewfeedsComponent } from './newfeeds/newfeeds.component';
 import { PostComponent } from './post/post.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PostComponent } from './post/post.component';
   ],
   imports: [
     CommonModule,
-    HomepageRoutingModule
+    HomepageRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class HomepageModule { }

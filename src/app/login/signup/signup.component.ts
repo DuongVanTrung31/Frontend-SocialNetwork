@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
               private router: Router,
               private authService: AuthenticationService) {
     if(localStorage.getItem("ACCESS_TOKEN") != null) {
-      this.router.navigate(['/']).then()
+      this.router.navigate(['/home']).then()
     }
   }
 
@@ -39,6 +39,8 @@ export class SignupComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          // @ts-ignore
+          localStorage.setItem('ID', data.id);
           // @ts-ignore
           localStorage.setItem('ACCESS_TOKEN', data.token);
           // @ts-ignore

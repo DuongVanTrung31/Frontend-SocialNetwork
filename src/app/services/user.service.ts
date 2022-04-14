@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {RegisterDto} from "../models/dto/register-dto";
 
+
 const API = `${environment.urlApi}`
 
 @Injectable({
@@ -15,5 +16,9 @@ export class UserService {
 
   register(registerDto: RegisterDto): Observable<any> {
     return this.http.post<any>(API + "/auth/signup", registerDto);
+  }
+
+  getUserInfo(id: number):Observable<any> {
+    return this.http.get<any>(API + `/userInfo/${id}`);
   }
 }

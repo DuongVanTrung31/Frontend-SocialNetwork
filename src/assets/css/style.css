@@ -708,6 +708,7 @@ header.sticky {
     display: inline-block;
     transform: scale(0.7);
     vertical-align: inherit;
+    width: 50px;
 }
 
 .form-search {

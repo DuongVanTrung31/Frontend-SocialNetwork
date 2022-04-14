@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar [user]= "user"></app-navbar>
 <section>
   <div class="gap gray-bg">
     <div class="container-fluid">
@@ -9,7 +9,7 @@
               <app-sidebar></app-sidebar>
             </div>
             <div class="col-lg-6">
-              <app-newfeeds></app-newfeeds>
+              <app-newfeeds [user] = "user"></app-newfeeds>
             </div>
             <div class="col-lg-3"></div>
           </div>

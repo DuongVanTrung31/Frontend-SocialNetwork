@@ -1,29 +1,26 @@
 <div class="central-meta">
   <div class="new-postbox">
     <figure>
-      <img src="images/resources/admin2.jpg" alt="">
+      <img src="{{user.avatarUrl}}" alt="">
     </figure>
     <div class="newpst-input">
-      <form method="post">
-        <textarea rows="2" placeholder="Bạn đang nghĩ gì"></textarea>
+      <form [formGroup]="formPost" (ngSubmit)="onPost()">
+        <textarea rows="2" placeholder="Bạn đang nghĩ gì" formControlName="content"></textarea>
         <div class="attachments">
           <ul>
             <li>
-              <i class="fa fa-music"></i>
-              <label class="fileContainer">
-                <input type="file">
+              <label for="status">Chế độ:
+                <select formControlName="status" id="status">
+                  <option value="PUBLIC">Công khai</option>
+                  <option value="FRIENDS">Bạn bè</option>
+                  <option value="PRIVATE">Chỉ mình tôi</option>
+                </select>
               </label>
             </li>
             <li>
               <i class="fa fa-image"></i>
               <label class="fileContainer">
-                <input type="file">
-              </label>
-            </li>
-            <li>
-              <i class="fa fa-video-camera"></i>
-              <label class="fileContainer">
-                <input type="file">
+                <input #uploadFile type="file" (change)="uploadImage()" >
               </label>
             </li>
             <li>
@@ -31,6 +28,7 @@
             </li>
           </ul>
         </div>
+        <img [src]="imageUrl" alt="">
       </form>
     </div>
   </div>
