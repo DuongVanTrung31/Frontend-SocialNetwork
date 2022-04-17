@@ -2650,6 +2650,7 @@ nav.breadcrumb {
   padding: 20px;
   width: 100%;
   transition: all 0.15s linear 0s;
+  border-radius: 10px;
 }
 
 .nearby-contct > li:last-child {
@@ -2658,7 +2659,7 @@ nav.breadcrumb {
 
 .nearby-contct > li:hover {
   box-shadow: 0 8px 8px #e1e8ec;
-  border-color: transparent;
+  border-color: rgba(10, 152, 220, 0.5);
 }
 
 .nearly-pepls {
@@ -6031,7 +6032,8 @@ ul.offcanvas-menu ul {
   margin-bottom: 30px;
   background: #fdfdfd;
   border: 1px solid #ede9e9;
-  border-radius: 3px;
+  border-radius: 15px;
+  box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.75);
 }
 
 .sidebar .widget:last-child {
@@ -6055,7 +6057,6 @@ ul.offcanvas-menu ul {
   margin-bottom: 30px;
   padding: 20px 20px 10px;
   position: relative;
-  text-transform: uppercase;
   width: 100%;
 }
 
@@ -6092,7 +6093,6 @@ ul.offcanvas-menu ul {
 
 .sidebar .widget li > a {
   font-size: 15px;
-  text-transform: capitalize;
   display: inline-block;
   position: relative;
   font-weight: 500;
@@ -6159,7 +6159,7 @@ ul.offcanvas-menu ul {
 .central-meta {
   background: #fdfdfd none repeat scroll 0 0;
   border: 1px solid #ede9e9;
-  border-radius: 3px;
+  border-radius: 15px;
   display: inline-block;
   width: 100%;
   margin-bottom: 20px;

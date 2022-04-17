@@ -19,6 +19,7 @@ export class UpdateInfoComponent implements OnInit {
   ngOnInit(): void {
     this.getUserInfo()
     this.initForm()
+    this.formUpdateInfo.setValue(this.user)
   }
 
   getUserInfo() {

@@ -26,4 +26,8 @@ export class UserService {
   changePassword(uid: number,changePasswordForm:ChangePasswordForm): Observable<any> {
     return this.http.put<any>(API + `/changePassword/${uid}`,changePasswordForm)
   }
+
+  getRequest(uid:number): Observable<any> {
+    return this.http.get(API + `/requestToMe/${uid}`)
+  }
 }
