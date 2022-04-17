@@ -1,39 +1,43 @@
-<div class="topbar stick is_stuck" style="position: fixed; top: 0px; width: 1349px;">
-  <div class="logo">
-    <img src="/assets/images/z3340769601394_e6d4ccc4fbe271d6caadd45184b6c32c.jpg" alt="">
-  </div>
-  <div class="top-area">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <input id="icon-search" type="text" placeholder="Tìm kiếm">
-    <div class="user-img">
-      <img src="{{user.avatarUrl}}" alt="">
+<div class="header">
+  <div class="header__left">
+    <a routerLink="../">
+      <img src="/assets/images/z3340769601394_e6d4ccc4fbe271d6caadd45184b6c32c.jpg" alt="">
+    </a>
+    <div class="header__input">
+      <i class="material-icons"> search </i>
+      <input type="text" placeholder="Nhập từ tìm kiếm">
     </div>
-    <ul class="main-menu">
-      <li>
-        <form method="post" class="form-search">
-          <input type="text" placeholder="Search Friend">
-          <button data-ripple=""><i class="ti-search"></i></button>
-        </form>
-      </li>
-      <li>
-        <a title="Trang chủ"><i class="fa fa-house" style="size: 100px"></i></a>
-      </li>
-      <li>
-        <a title="Bạn bè"><i class="fa fa-user-group"></i></a>
-      </li>
-    </ul>
-    <ul class="setting-area">
-      <li>
-        <a href="#" title="Thông báo" data-ripple="">
-          <i class="fa fa-bell"></i><span>20</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" title="Tin nhắn" data-ripple=""><i class="fa-brands fa-facebook-messenger"></i><span>12</span></a>
-      </li>
-      <li>
-        <a href="#" title="Chọn thêm" data-ripple=""><i class="fa-solid fa-caret-down"></i></a>
-      </li>
-    </ul>
+  </div>
+  <div class="header__middle">
+    <div class="header__option">
+      <a title="Trang chủ" routerLink="../"><i class="material-icons">home</i></a>
+    </div>
+    <div class="header__option">
+      <a title="Bạn bè" routerLink="../"><i class="material-icons">supervised_user_circle</i></a>
+    </div>
+  </div>
+  <div class="header__right">
+    <div class="header__info">
+      <img class="user__avatar" src="{{user.avatarUrl}} " alt="">
+      <h4>{{user.fullName}}</h4>
+      <ul class="setting-area">
+        <li>
+          <a href="#" title="Thông báo" data-ripple="">
+            <i class="material-icons">notifications_active</i><sup>20</sup>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="Tin nhắn" data-ripple="">
+            <i class="fa-brands fa-facebook-messenger" style="font-size: x-large;"></i><sup>12</sup></a>
+        </li>
+        <li>
+          <a href="#" title="Chọn thêm" data-ripple="">
+            <i class="material-icons">
+              settings
+            </i>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

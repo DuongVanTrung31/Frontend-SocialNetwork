@@ -14,7 +14,7 @@
           </label>
         </li>
         <li>
-          <i class="fa fa-image"></i>
+          <i  data-visualcompletion="css-img" class="hu5pjgll bixrwtb6" style="height: 24px; width: 24px; background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/kh-mrjY72aj.png&quot;); background-position: 0px -233px; background-size: auto; background-repeat: no-repeat; display: inline-block;"></i>
           <label class="fileContainer">
             <input #uploadFile type="file" (change)="uploadImage()">
           </label>
@@ -27,8 +27,7 @@
       </div>
     </ng-container>
     <div mat-dialog-actions [align]="'end'" style="margin-right: 40px; padding-right: 30px">
-      <button mat-raised-button color="accent" mat-dialog-close>Thoát</button>
-      <button type="submit" mat-raised-button color="warn" [disabled]="formPost.invalid">Đăng</button>
+      <button type="submit" mat-raised-button color="primary" [disabled]="formPost.invalid">Đăng</button>
     </div>
   </form>
 </div>

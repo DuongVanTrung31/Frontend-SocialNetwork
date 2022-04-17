@@ -59,7 +59,7 @@ export class PostComponent implements OnInit {
       status: this.formPost.value.status
     }
     this.postService.savePost(this.idUser, post).subscribe(() => {
-      this.formPost.reset()
+      this.formPost.reset();
     })
   }
 }

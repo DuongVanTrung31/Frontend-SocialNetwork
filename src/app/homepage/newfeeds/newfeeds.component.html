@@ -1,102 +1,145 @@
-<div class="central-meta">
-  <div class="new-postbox">
-    <figure>
-      <img src="{{user.avatarUrl}}" alt="">
-    </figure>
-    <div class="newpst-input">
-      <form>
-        <textarea rows="1" placeholder="{{user.fullName}} , bạn đang nghĩ gì thế ?" readonly
-                  (click)="onPostDialog()"></textarea>
-        <div class="attachments">
-          <ul>
-            <li>
-              <i class="fa fa-image" (click)="onPostDialog()"></i>
-            </li>
-            <li>
-              <button type="button" (click)="onPostDialog()">Đăng</button>
-            </li>
-          </ul>
-        </div>
-      </form>
+<div class="messageSender">
+  <div class="messageSender__top">
+    <img class="user__avatar" src="{{user.avatarUrl}}" alt="">
+    <form>
+      <input class="messageSender__input" placeholder="{{user.fullName}} , bạn đang nghĩ gì thế ?" readonly
+             (click)="onPostDialog()">
+    </form>
+  </div>
+  <div class="messageSender__bottom">
+    <div class="messageSender__option" (click)="onPostDialog()">
+      <span style="color: red" class="material-icons">videocam</span>
+      <h3>Video</h3>
+    </div>
+    <div class="messageSender__option" (click)="onPostDialog()">
+      <span style="color: green" class="material-icons">photo_library</span>
+      <h3>Gắn ảnh</h3>
+    </div>
+    <div class="messageSender__option" (click)="onPostDialog()">
+      <span style="color: orange" class="material-icons">insert_emoticon</span>
+      <h3>Cảm xúc</h3>
     </div>
   </div>
 </div>
-<div class="loadMore">
-  <div class="central-meta item" *ngFor="let feed of newFeeds" style="display: inline-block;">
-    <div class="user-post">
-      <div class="friend-info">
-        <figure>
-          <img src="{{feed.user.avatarUrl}}" alt="">
-        </figure>
-        <div class="friend-name">
-          <ins><a href="" title="">{{feed.user.fullName}}</a></ins>
-          <span>{{feed.createdDate}}</span>
-        </div>
-        <div class="post-meta">
-          <div class="description">
-            <p>
-              {{feed.content}}
-            </p>
-          </div>
-          <img style="border: solid 1px" src="{{feed.image}}" alt="">
-          <div class="we-video-info">
-            <ul>
-              <li>
-                  <span class="views" data-toggle="tooltip" title="" data-original-title="Lượt thích">
-                    <i class="fa-solid fa-thumbs-up"></i>
-                    <ins>{{feed.likePostList.length}}</ins>
-                  </span>
-              </li>
-              <li>
-                  <span class="comment" data-toggle="tooltip" title="" data-original-title="Bình luận">
-                    <i class="fa fa-comments-o"></i>
-                    <ins>{{feed.commentList.length}}</ins>
-                  </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="coment-area">
-        <ul class="we-comet">
-          <li *ngFor="let comment of feed.commentList">
-            <div class="comet-avatar">
-              <img src="{{comment.user.avatarUrl}}" alt="">
-            </div>
-            <div class="we-comment">
-              <div class="coment-head">
-                <h5><a href="" title="">{{comment.user.fullName}}</a></h5>
-                <span>{{comment.createdDate}}</span>
-                <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
-              </div>
-              <p>{{comment.content}}</p>
-            </div>
-            <!--            <ul>-->
-            <!--              <li>-->
-            <!--                <div class="comet-avatar">-->
-            <!--                  <img src="" alt="">-->
-            <!--                </div>-->
-            <!--                <div class="we-comment">-->
-            <!--                  <div class="coment-head">-->
-            <!--                    <h5><a href="" title="">alexendra dadrio</a></h5>-->
-            <!--                    <span>1 month ago</span>-->
-            <!--                    <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>-->
-            <!--                  </div>-->
-            <!--                  <p>yes, really very awesome car i see the features of this car in the official website of <a-->
-            <!--                    href="#" title="">#Mercedes-Benz</a> and really impressed :-)</p>-->
-            <!--                </div>-->
-            <!--              </li>-->
-            <!--            </ul>-->
-          <li>
-            <a href="#" title="" class="showmore underline">more comments</a>
-          </li>
-          <li class="post-comment">
-            <app-comment [user]="user" (commentEvent)="handleComment(feed.id,$event)"></app-comment>
-          </li>
-        </ul>
-      </div>
+
+<div class="post" *ngFor="let feed of newFeeds">
+  <div class="post__top">
+    <img src="{{feed.user.avatarUrl}}" alt="" class="user__avatar post__avatar">
+    <div class="post__topInfo">
+      <h3>{{feed.user.fullName}}</h3>
+      <p>{{feed.createdDate}}</p>
+    </div>
+    <div class="post__action">
+      <span class="material-icons">more_horiz</span>
     </div>
   </div>
+
+  <div class="post__bottom">
+    <p>
+      {{feed.content}}
+    </p>
+  </div>
+
+  <div class="post__image">
+    <img src="{{feed.image}}" alt="">
+  </div>
+
+  <div class="post__options">
+    <div class="post__option">
+      <span class="material-icons">thumb_up</span>
+      <p>Thích</p>
+    </div>
+    <div class="post__option">
+      <span class="material-icons">chat_bubble_outline</span>
+      <p>Bình luận</p>
+    </div>
+  </div>
+
+  <div class="post__comment">
+    <ul class="we-comet">
+      <li class="post-comment">
+        <app-comment [user]="user" (commentEvent)="handleComment(feed.id,$event)"></app-comment>
+      </li>
+      <li *ngFor="let comment of feed.commentList">
+        <div class="comet-avatar">
+          <img src="{{comment.user.avatarUrl}}" alt="">
+        </div>
+        <div class="we-comment">
+          <div class="coment-head">
+            <h5><a href="" title="">{{comment.user.fullName}}</a></h5>
+            <span>{{comment.createdDate}}</span>
+            <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+          </div>
+          <p>{{comment.content}}</p>
+        </div>
+      <li>
+        <a href="#" title="" class="showmore underline">Thêm bình luận</a>
+      </li>
+    </ul>
+  </div>
 </div>
+
+
+<!--<div class="loadMore">-->
+<!--  <div class="central-meta item" *ngFor="let feed of newFeeds" style="display: inline-block;">-->
+<!--    <div class="user-post">-->
+<!--      <div class="friend-info">-->
+<!--        <figure>-->
+<!--          <img src="{{feed.user.avatarUrl}}" alt="">-->
+<!--        </figure>-->
+<!--        <div class="friend-name">-->
+<!--          <ins><a href="" title="">{{feed.user.fullName}}</a></ins>-->
+<!--          <span>{{feed.createdDate}}</span>-->
+<!--        </div>-->
+<!--        <div class="post-meta">-->
+<!--          <div class="description">-->
+<!--            <p>-->
+<!--              {{feed.content}}-->
+<!--            </p>-->
+<!--          </div>-->
+<!--          <img style="border: solid 1px" src="{{feed.image}}" alt="">-->
+<!--          <div class="we-video-info">-->
+<!--            <ul>-->
+<!--              <li>-->
+<!--                  <span class="views" data-toggle="tooltip" title="" data-original-title="Lượt thích">-->
+<!--                    <i class="fa-solid fa-thumbs-up"></i>-->
+<!--                    <ins>{{feed.likePostList.length}}</ins>-->
+<!--                  </span>-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                  <span class="comment" data-toggle="tooltip" title="" data-original-title="Bình luận">-->
+<!--                    <i class="fa fa-comments-o"></i>-->
+<!--                    <ins>{{feed.commentList.length}}</ins>-->
+<!--                  </span>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="coment-area">-->
+<!--        <ul class="we-comet">-->
+<!--          <li *ngFor="let comment of feed.commentList">-->
+<!--            <div class="comet-avatar">-->
+<!--              <img src="{{comment.user.avatarUrl}}" alt="">-->
+<!--            </div>-->
+<!--            <div class="we-comment">-->
+<!--              <div class="coment-head">-->
+<!--                <h5><a href="" title="">{{comment.user.fullName}}</a></h5>-->
+<!--                <span>{{comment.createdDate}}</span>-->
+<!--                <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>-->
+<!--              </div>-->
+<!--              <p>{{comment.content}}</p>-->
+<!--            </div>-->
+<!--          <li>-->
+<!--            <a href="#" title="" class="showmore underline">Thêm bình luận</a>-->
+<!--          </li>-->
+<!--          <li class="post-comment">-->
+<!--            <app-comment [user]="user" (commentEvent)="handleComment(feed.id,$event)"></app-comment>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 <button class="btn-view btn-load-more">Load More</button>
 
