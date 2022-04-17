@@ -20,6 +20,7 @@ import { InfoUserComponent } from './info-user/info-user.component';
 import { PasswordComponent } from './password/password.component';
 import { DetailUserComponent } from './detail-user/detail-user.component';
 import { UpdateInfoComponent } from './update-info/update-info.component';
+import { FriendComponent } from './friend/friend.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { UpdateInfoComponent } from './update-info/update-info.component';
     InfoUserComponent,
     PasswordComponent,
     DetailUserComponent,
-    UpdateInfoComponent
+    UpdateInfoComponent,
+    FriendComponent
   ],
   imports: [
     CommonModule,

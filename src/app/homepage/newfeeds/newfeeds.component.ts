@@ -6,6 +6,7 @@ import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {PostComponent} from "../post/post.component";
 import {Comment} from "../../models/comment";
 import {CommentService} from "../../services/comment.service";
+import {LikeService} from "../../services/like.service";
 
 @Component({
   selector: 'app-newfeeds',
@@ -20,7 +21,8 @@ export class NewfeedsComponent implements OnInit {
 
   constructor(private postService: PostService,
               private dialog: MatDialog,
-              private commentService: CommentService) {
+              private commentService: CommentService,
+              private likeService: LikeService) {
   }
 
   ngOnInit(): void {
@@ -67,4 +69,15 @@ export class NewfeedsComponent implements OnInit {
       }
     })
   }
+
+  onLike(postId:number | undefined) {
+    this.likeService.likePost(postId, this.idUser).subscribe(() => {
+      if (this.typePage == "newfeeds") {
+        this.getNewFeeds()
+      } else if (this.typePage == "timeline") {
+        this.getTimeLine()
+      }
+    })
+  }
+
 }

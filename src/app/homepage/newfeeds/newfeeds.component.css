@@ -59,8 +59,13 @@
 .user__avatar {
   border-radius: 50%;
   width: 60px;
+  height: 60px;
+  cursor: pointer;
 }
 
+.post__avatar {
+  margin-right: 10px;
+}
 
 .post {
   width: 100%;
@@ -80,10 +85,11 @@
   position: relative;
   align-items: center;
   padding: 15px;
+  justify-content: space-between;
 }
 
-.post__avatar {
-  margin-right: 10px;
+.post__topLeft {
+  display: flex;
 }
 
 .post__topInfo h3 {
@@ -101,7 +107,6 @@
 }
 
 .post__action {
-  margin-left: 380px;
   align-self: stretch;
 }
 
@@ -128,6 +133,7 @@
   font-size: medium;
   color: gray;
   cursor: pointer;
+  margin-bottom: 2px;
 }
 
 .post__option {
@@ -153,7 +159,17 @@
 }
 
 .post__comment {
-  display: flex;
-  width: 95%;
+  padding-top: 2px;
+  width: 98%;
   padding-left: 0;
+  display: flex;
+  flex: 1;
+}
+
+.post__count {
+  padding: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: 1;
 }

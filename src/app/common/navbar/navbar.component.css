@@ -63,7 +63,7 @@
   cursor: pointer;
 }
 
-.header__option.active {
+.header__option a.active {
   border-bottom: #2e81f4 solid 4px;
 }
 
@@ -76,6 +76,11 @@
 }
 
 .header__info {
+  display: flex;
+  align-items: center;
+}
+
+.header__info a {
   display: flex;
   align-items: center;
 }

@@ -29,4 +29,5 @@ export class CommentComponent implements OnInit {
     this.commentEvent.emit(comment);
     this.formComment.reset();
   }
+
 }

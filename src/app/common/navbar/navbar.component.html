@@ -13,13 +13,15 @@
       <a title="Trang chủ" routerLink="../"><i class="material-icons">home</i></a>
     </div>
     <div class="header__option">
-      <a title="Bạn bè" routerLink="../"><i class="material-icons">supervised_user_circle</i></a>
+      <a title="Bạn bè" routerLink="../info/friend"><i class="material-icons">people_alt</i></a>
     </div>
   </div>
   <div class="header__right">
     <div class="header__info">
-      <img class="user__avatar" src="{{user.avatarUrl}} " alt="">
-      <h4>{{user.fullName}}</h4>
+      <a routerLink="timeline">
+        <img class="user__avatar" src="{{user.avatarUrl}} " alt="">
+        <h4>{{user.fullName}}</h4>
+      </a>
       <ul class="setting-area">
         <li>
           <a href="#" title="Thông báo" data-ripple="">
@@ -33,7 +35,7 @@
         <li>
           <a href="#" title="Chọn thêm" data-ripple="">
             <i class="material-icons">
-              settings
+              expand_more
             </i>
           </a>
         </li>

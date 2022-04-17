@@ -1536,15 +1536,10 @@ for some reason nth-child(1) is always busy and elements starting from 2 */
 
 /*--- comment area ---*/
 
-.coment-area {
-  display: inline-block;
-  margin-top: 10px;
-  width: 100%;
-}
 
 .we-comet > li {
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   width: 100%;
 }
 
@@ -1553,10 +1548,11 @@ for some reason nth-child(1) is always busy and elements starting from 2 */
 }
 
 .comet-avatar {
+  margin-top: 5px;
   display: table-cell;
-  max-width: 4%;
+  max-width: 5%;
   vertical-align: top;
-  width: 4%;
+  width: 5%;
 }
 
 .we-comment {
@@ -1567,7 +1563,9 @@ for some reason nth-child(1) is always busy and elements starting from 2 */
   padding: 10px;
   vertical-align: top;
   position: relative;
-  width: 60%;
+  width: 70%;
+  box-shadow: 0 5px 7px -7px rgba(0, 0, 0, 0.75);
+  flex: 1;
 }
 
 .we-comment::before,
@@ -1579,6 +1577,7 @@ for some reason nth-child(1) is always busy and elements starting from 2 */
   top: 10px;
   position: absolute;
   content: '';
+  box-shadow: 0 5px 7px -7px rgba(0, 0, 0, 0.75);
 }
 
 .we-comment::after,
@@ -1590,24 +1589,24 @@ for some reason nth-child(1) is always busy and elements starting from 2 */
   top: 12px;
   position: absolute;
   content: '';
+  box-shadow: 0 5px 7px -7px rgba(0, 0, 0, 0.75);
 }
 
 .we-comet > li ul {
-  margin-left: 55px;
-  margin-top: 20px;
+  margin-left: 30px;
+  margin-top: 10px;
   padding-left: 0;
   list-style: none;
 }
 
 .we-comet > li ul li {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .we-comet li a.showmore {
   display: table;
   font-size: 12px;
   margin: 0 auto;
-  text-transform: capitalize;
 }
 
 .we-comet > li ul li:last-child {

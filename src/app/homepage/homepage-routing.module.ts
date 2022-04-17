@@ -6,6 +6,7 @@ import {InfoUserComponent} from "./info-user/info-user.component";
 import {PasswordComponent} from "./password/password.component";
 import {DetailUserComponent} from "./detail-user/detail-user.component";
 import {UpdateInfoComponent} from "./update-info/update-info.component";
+import {FriendComponent} from "./friend/friend.component";
 
 const routes: Routes = [
   {
@@ -15,6 +16,8 @@ const routes: Routes = [
   {
     path: 'timeline',
     component: TimelineComponent,
+    children: [
+    ]
   },
   {
     path: 'info',
@@ -31,6 +34,10 @@ const routes: Routes = [
       {
         path:'update',
         component: UpdateInfoComponent
+      },
+      {
+        path:'friend',
+        component: FriendComponent
       }
     ]
   }
