@@ -489,7 +489,6 @@ header.sticky {
 
 .log-reg-area > h2 {
   font-weight: bold;
-  text-transform: capitalize;
 }
 
 .land-featurearea {
@@ -696,7 +695,6 @@ header.sticky {
   margin-right: 30px;
   position: relative;
   line-height: initial;
-  text-transform: capitalize;
   padding-bottom: 3px;
   font-weight: 400;
 }
@@ -780,7 +778,6 @@ header.sticky {
   font-size: 11px;
   margin: 0 0 0 5px;
   position: relative;
-  text-transform: capitalize;
 }
 
 .fileContainer [type=file] {
@@ -897,7 +894,6 @@ header.sticky {
   font-weight: 600;
   letter-spacing: 0.3px;
   margin-bottom: 0;
-  text-transform: capitalize;
 }
 
 .mesg-meta > span {
@@ -935,7 +931,6 @@ header.sticky {
   font-size: 14px;
   padding-bottom: 5px;
   text-align: center;
-  text-transform: capitalize;
   width: 100%;
 }
 
@@ -1158,7 +1153,6 @@ form button {
   color: #999;
   float: left;
   font-size: 12px;
-  text-transform: capitalize;
   width: 100%;
 }
 
@@ -1236,7 +1230,6 @@ form button {
   float: right;
   font-size: 12px;
   font-weight: 600;
-  text-transform: uppercase;
 }
 
 .upload-date > i {
@@ -1244,7 +1237,6 @@ form button {
   font-style: normal;
   font-weight: normal;
   margin-left: 5px;
-  text-transform: capitalize;
 }
 
 .we-video-info > ul li span.dislike {
@@ -1630,17 +1622,18 @@ for some reason nth-child(1) is always busy and elements starting from 2 */
 .we-comment > p {
   font-size: 14px;
   line-height: 26px;
-  margin-bottom: 0;
+  margin: 10px 5px 0 0;
   max-width: 100%;
-  margin-top: 5px;
   color: #343333;
 }
 
 .we-reply {
-  font-size: 13px;
+  font-size: 12px;
   display: inline-block;
   margin-left: 10px;
+  cursor: pointer;
 }
+
 
 .coment-head > span {
   color: #999;
@@ -1819,7 +1812,6 @@ span.status.f-off {
 .friendz-meta > a {
   display: inline-block;
   font-size: 14px;
-  text-transform: capitalize;
   width: 100%;
 }
 
@@ -1846,7 +1838,6 @@ span.status.f-off {
   margin-bottom: 15px;
   padding: 5px 0;
   text-align: center;
-  text-transform: capitalize;
   width: 100%;
   transition: all 0.2s linear 0s;
 }
@@ -1945,7 +1936,6 @@ span.status.f-off {
   display: inline-block;
   font-size: 13px;
   padding: 10px 15px;
-  text-transform: capitalize;
   width: 100%;
   background: #fafafa;
   position: relative;
@@ -2027,7 +2017,6 @@ span.status.f-off {
   position: absolute;
   right: 0.21667rem;
   text-align: center;
-  text-transform: uppercase;
   top: 0;
   transition: all 0.1s ease-in-out 0s;
 }
@@ -2100,7 +2089,6 @@ span.status.f-off {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 20px;
-  text-transform: uppercase;
 }
 
 .mm-panel.mm-hasnavbar .panel-title {
@@ -2132,7 +2120,6 @@ span.status.f-off {
   font-size: 13px;
   line-height: initial;
   text-align: left;
-  text-transform: capitalize;
   width: 76%;
 }
 
@@ -2167,7 +2154,6 @@ span.status.f-off {
   display: inline-block;
   font-weight: 700;
   margin-bottom: 5px;
-  text-transform: capitalize;
   width: 100%;
 }
 
@@ -2259,7 +2245,6 @@ li.google {
   font-size: 14px;
   font-style: normal;
   font-weight: bold;
-  text-transform: capitalize;
   width: 100%;
 }
 
@@ -2267,7 +2252,6 @@ li.google {
   color: #b8b8b8;
   font-size: 12px;
   font-style: normal;
-  text-transform: capitalize;
 }
 
 .twiter-feed > li p,
@@ -2367,7 +2351,6 @@ li.google {
   height: 42px;
   position: absolute;
   right: 3px;
-  text-transform: capitalize;
   top: 3px;
   width: 100px;
 }
@@ -2376,7 +2359,6 @@ li.google {
   font-size: 60px;
   font-weight: 300;
   margin-bottom: 30px;
-  text-transform: capitalize;
 }
 
 .know-box {
@@ -2400,7 +2382,6 @@ li.google {
   display: inline-block;
   font-size: 25px;
   margin-top: 13px;
-  text-transform: capitalize;
   width: 100%;
 }
 
@@ -2415,7 +2396,6 @@ li.google {
   display: inline-block;
   margin-bottom: 40px;
   text-align: center;
-  text-transform: capitalize;
   width: 100%;
 }
 
@@ -2426,7 +2406,6 @@ li.google {
 
 .vid-links > h4 {
   display: inline-block;
-  text-transform: capitalize;
   width: 100%;
 }
 
@@ -2440,7 +2419,6 @@ li.google {
   border-bottom: 1px solid #eaeaea;
   margin-bottom: 10px;
   padding-bottom: 10px;
-  text-transform: capitalize;
 }
 
 .tutor-links > li i {
@@ -2618,7 +2596,6 @@ nav.breadcrumb {
 
 .header-inner > h2 {
   font-size: 20px;
-  text-transform: capitalize;
   width: 49.5%;
   display: inline-block;
   padding-left: 30px;
@@ -2688,7 +2665,6 @@ nav.breadcrumb {
   display: inline-block;
   font-size: 16px;
   font-weight: 600;
-  text-transform: capitalize;
 }
 
 a.add-butn {
@@ -2699,14 +2675,12 @@ a.add-butn {
   padding: 5px 10px;
   position: absolute;
   right: 0;
-  text-transform: capitalize;
   top: 10px;
 }
 
 .pepl-info > span {
   float: left;
   font-size: 13px;
-  text-transform: capitalize;
   width: 100%;
   line-height: initial;
 }
@@ -2753,7 +2727,6 @@ a.add-butn {
   display: inline-block;
   font-size: 16px;
   font-weight: 600;
-  text-transform: capitalize;
   width: auto;
 }
 
@@ -2801,7 +2774,6 @@ a.add-butn {
   font-weight: 500;
   letter-spacing: 0.5px;
   padding: 5px 0;
-  text-transform: uppercase;
   width: 100%;
 }
 
@@ -2850,7 +2822,6 @@ a.add-butn {
   float: left;
   font-size: 13px;
   text-align: center;
-  text-transform: capitalize;
   width: 100%;
 }
 
@@ -2963,7 +2934,6 @@ a.add-butn.more-action {
   color: #999;
   font-size: 14px;
   margin-bottom: 20px;
-  text-transform: capitalize;
 }
 
 .basics > li i,
@@ -3011,7 +2981,6 @@ a.add-butn.more-action {
 .f-title {
   font-size: 17.5px;
   font-weight: 600;
-  text-transform: capitalize;
   color: #000;
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -3133,7 +3102,6 @@ a.forgot-pwd {
   display: inline-block;
   font-size: 14px;
   padding: 4px 15px;
-  text-transform: capitalize;
   border-radius: 3px;
 }
 
@@ -3187,7 +3155,6 @@ a.forgot-pwd {
   font-size: 14px;
   letter-spacing: 0.4px;
   margin-top: 0;
-  text-transform: capitalize;
 }
 
 .sidebar .invition > li {
@@ -3220,7 +3187,7 @@ a.forgot-pwd {
   color: #999;
   display: inline-block;
   font-size: 14px;
-  text-transform: capitalize;
+
   width: 100%;
 }
 
@@ -3273,7 +3240,7 @@ a.forgot-pwd {
 .notifi-meta > p {
   font-size: 15px;
   margin-bottom: 0;
-  text-transform: capitalize;
+
   color: #3a3a3a;
 }
 
@@ -3370,7 +3337,7 @@ a.forgot-pwd {
 .people-name > span {
   display: inline-block;
   font-size: 14px;
-  text-transform: capitalize;
+
   font-weight: 400;
 }
 
@@ -3505,7 +3472,7 @@ a.forgot-pwd {
   font-weight: bold;
   line-height: initial;
   margin-left: 10px;
-  text-transform: capitalize;
+
   vertical-align: middle;
   width: 83%;
   font-size: 18px;
@@ -3661,7 +3628,7 @@ a.forgot-pwd {
   color: #999;
   display: inline-block;
   font-size: 12px;
-  text-transform: capitalize;
+
   vertical-align: top;
 }
 
@@ -3711,7 +3678,6 @@ a.dislike-btn {
   border-radius: 0;
   font-size: 12px;
   padding: 0 7px;
-  text-transform: capitalize;
 }
 
 .pgs .btn.dropdown-toggle i {
@@ -3874,12 +3840,10 @@ canvas {
 
 .res-menu ul.mm-listview > li,
 .res-menu ul.mm-listview > li span {
-  text-transform: uppercase;
   font-size: 12px;
 }
 
 .mm-navbar .mm-title {
-  text-transform: uppercase;
 }
 
 .mh-head {
@@ -3988,7 +3952,6 @@ canvas {
   color: #575b5f;
   font-size: 14px;
   font-weight: 700;
-  text-transform: capitalize;
   letter-spacing: 0.3px;
 }
 
@@ -4010,7 +3973,6 @@ canvas {
   font-weight: normal;
   padding: 10px 15px;
   width: 100%;
-  text-transform: capitalize;
   transition: all 0.2s linear 0s;
   border-radius: 0 0 5px 5px;
 }
@@ -4893,7 +4855,6 @@ canvas {
   font-size: 18px;
   font-weight: 600;
   line-height: 26px;
-  text-transform: capitalize;
 }
 
 .post-title > h4 a {
@@ -4909,7 +4870,6 @@ canvas {
 .post-title .p-date {
   color: #999;
   font-size: 10px;
-  text-transform: uppercase;
 }
 
 .post-title .p-date > a {
@@ -4932,7 +4892,6 @@ canvas {
   font-size: 12px;
   font-weight: bold;
   margin-top: 20px;
-  text-transform: uppercase;
   -webkit-transition: all 0.2s linear 0s;
   -moz-transition: all 0.2s linear 0s;
   -ms-transition: all 0.2s linear 0s;
@@ -4998,7 +4957,6 @@ form.filter-form input {
 }
 
 .purify > span {
-  text-transform: capitalize;
   font-weight: bold;
   margin-right: 10px;
 }
@@ -5043,7 +5001,6 @@ form.filter-form input {
   letter-spacing: 0.8px;
   line-height: initial;
   padding: 15px 20px;
-  text-transform: capitalize;
   vertical-align: top;
 }
 
@@ -5062,7 +5019,6 @@ form.filter-form input {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 30px;
-  text-transform: capitalize;
 }
 
 .comments {
@@ -5127,7 +5083,6 @@ form.filter-form input {
   display: inline-block;
   font-size: 18px;
   font-weight: 400;
-  text-transform: capitalize;
   vertical-align: top;
 }
 
@@ -5145,7 +5100,6 @@ a.reply {
   -ms-text-decoration: underline;
   -o-text-decoration: underline;
   text-decoration: underline;
-  text-transform: capitalize;
   vertical-align: middle;
 }
 
@@ -5271,7 +5225,6 @@ a.reply {
   letter-spacing: 1px;
   margin-top: 20px;
   padding: 8px 19px;
-  text-transform: capitalize;
   -webkit-transition: all 0.2s linear 0s;
   -moz-transition: all 0.2s linear 0s;
   -ms-transition: all 0.2s linear 0s;
@@ -5324,7 +5277,6 @@ a.reply {
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
-  text-transform: capitalize;
 }
 
 .open-position > h4 a {
@@ -5681,7 +5633,6 @@ ul.offcanvas-menu li a {
   padding: 6px 0;
   position: relative;
   text-align: center;
-  text-transform: capitalize;
   width: 100%;
   transition: all 0.3s linear 0s;
 }
@@ -5753,7 +5704,6 @@ ul.offcanvas-menu ul {
 .option-set.icon-style > li > a {
   font-size: 14px;
   font-weight: bold;
-  text-transform: capitalize;
 }
 
 .isotop-full {
@@ -5811,7 +5761,6 @@ ul.offcanvas-menu ul {
   font-size: 13px;
   margin-right: 2px;
   position: relative;
-  text-transform: capitalize;
 }
 
 .cate > li::before {
@@ -5829,7 +5778,6 @@ ul.offcanvas-menu ul {
   display: inline-block;
   font-size: 24px;
   font-weight: bold;
-  text-transform: capitalize;
   width: 100%;
   color: #2a2a2a;
 }
@@ -5939,7 +5887,6 @@ ul.offcanvas-menu ul {
   line-height: 26px;
   letter-spacing: 1px;
   padding-bottom: 6px;
-  text-transform: capitalize;
   width: 100%;
 }
 
@@ -5965,7 +5912,6 @@ ul.offcanvas-menu ul {
   line-height: 40px;
   margin-top: 50px;
   text-align: center;
-  text-transform: capitalize;
   width: 150px;
   -webkit-transition: all 0.2s linear 0s;
   -moz-transition: all 0.2s linear 0s;
@@ -5990,7 +5936,6 @@ ul.offcanvas-menu ul {
   -ms-text-decoration: none;
   -o-text-decoration: none;
   text-decoration: none;
-  text-transform: uppercase;
   width: 100%;
 }
 
@@ -6269,7 +6214,6 @@ form button {
   color: #999;
   float: left;
   font-size: 12px;
-  text-transform: capitalize;
   width: 100%;
 }
 

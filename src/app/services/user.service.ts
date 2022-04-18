@@ -27,7 +27,16 @@ export class UserService {
     return this.http.put<any>(API + `/changePassword/${uid}`,changePasswordForm)
   }
 
-  getRequest(uid:number): Observable<any> {
-    return this.http.get(API + `/requestToMe/${uid}`)
+  getRequestToMe(uid:number): Observable<any> {
+    return this.http.get<any>(API + `/requestToMe/${uid}`)
   }
+
+  getFriends(uid:number): Observable<any> {
+    return this.http.get<any>(API + `/listMyFriends/${uid}`)
+  }
+
+  getRequestFromMe(uid:number):Observable<any> {
+    return this.http.get<any>(API + `/requestFromMe/${uid}`)
+  }
+
 }

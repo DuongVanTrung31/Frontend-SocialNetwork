@@ -21,6 +21,10 @@ import { PasswordComponent } from './password/password.component';
 import { DetailUserComponent } from './detail-user/detail-user.component';
 import { UpdateInfoComponent } from './update-info/update-info.component';
 import { FriendComponent } from './friend/friend.component';
+import { UserTimelineComponent } from './user-timeline/user-timeline.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
 
 
 @NgModule({
@@ -37,7 +41,8 @@ import { FriendComponent } from './friend/friend.component';
     PasswordComponent,
     DetailUserComponent,
     UpdateInfoComponent,
-    FriendComponent
+    FriendComponent,
+    UserTimelineComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +52,10 @@ import { FriendComponent } from './friend/friend.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTabsModule,
+    MatIconModule,
+    MatMenuModule
   ]
 })
 export class HomepageModule { }

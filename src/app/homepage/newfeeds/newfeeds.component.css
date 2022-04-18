@@ -110,11 +110,6 @@
   align-self: stretch;
 }
 
-.post__action span:hover {
-  cursor: pointer;
-  background-color: #eff2f5;
-  border-radius: 20px;
-}
 .post__bottom {
   margin-left: 7px;
   margin-bottom: 10px;
@@ -166,6 +161,14 @@
   flex: 1;
 }
 
+.we-comment a:hover {
+  text-decoration: underline;
+}
+
+.comment__action {
+  align-self: stretch;
+}
+
 .post__count {
   padding: 12px;
   display: flex;
@@ -173,3 +176,4 @@
   justify-content: space-between;
   flex: 1;
 }
+

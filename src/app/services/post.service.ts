@@ -27,4 +27,8 @@ export class PostService {
   getTimeLine(uid: number):Observable<any> {
     return this.http.get<any>(API + `/post/${uid}`)
   }
+
+  deletePost(postId:number|undefined):Observable<any> {
+    return this.http.delete(API + `/post/${postId}`)
+  }
 }

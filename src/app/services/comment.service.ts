@@ -17,4 +17,8 @@ export class CommentService {
   saveComment(pid: number| undefined,comment: Comment):Observable<any> {
     return this.http.post<any>(API + `/comment/${pid}`, comment)
   }
+
+  delComment(commentId: number|undefined):Observable<any> {
+    return this.http.delete(API + `/comment/${commentId}`)
+  }
 }

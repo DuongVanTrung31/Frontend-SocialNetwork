@@ -11,7 +11,7 @@ import {Comment} from "../../models/comment";
 })
 export class CommentComponent implements OnInit {
   @Input() user!: User;
-  @Output() commentEvent = new EventEmitter<Comment>()
+  @Output() commentEvent = new EventEmitter<string>()
   formComment: FormGroup = new FormGroup({
     content: new FormControl("")
   })
@@ -21,12 +21,7 @@ export class CommentComponent implements OnInit {
   }
 
   handleEnter() {
-    const comment:Comment = {
-      content: this.formComment.value.content,
-      user: this.user,
-      likeCommentList: []
-    }
-    this.commentEvent.emit(comment);
+    this.commentEvent.emit(this.formComment.value.content);
     this.formComment.reset();
   }
 

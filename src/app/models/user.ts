@@ -7,7 +7,7 @@ export interface User {
   gender?: string,
   address?: string,
   fullName?: string,
-  avatarUrl?: string,
+  avatarUrl: string,
   coverImgUrl?: string,
   hobbies?: string
 }

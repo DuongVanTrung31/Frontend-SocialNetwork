@@ -1,29 +1,72 @@
 <div class="central-meta">
   <div class="frnds">
-    <ul class="nav nav-tabs">
-      <li class="nav-item"><a class="active" href="#frends" data-toggle="tab">Tất cả bạn bè</a> <span>55</span></li>
-      <li class="nav-item"><a class="" href="#frends-req" data-toggle="tab">Lời mời kết bạn</a><span>60</span></li>
-      <li class="nav-item"><a class="" href="#frends-res" data-toggle="tab">Lời mời đã gửi</a><span>60</span></li>
-    </ul>
-
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div class="tab-pane active fade show" id="frends">
-        <ul class="nearby-contct">
-          <li *ngFor="let user of userList">
-            <div class="nearly-pepls">
-              <figure>
-                <a href="" title=""><img src="{{user.avatarUrl}}" alt=""></a>
-              </figure>
-              <div class="pepl-info">
-                <h4><a href="" title="">{{user.fullName}}</a></h4>
-                <a href="#" title="" class="add-butn more-action" data-ripple="">Huỷ kết bạn</a>
-                <a href="#" title="" class="add-butn" data-ripple="">Chặn</a>
-              </div>
+    <mat-tab-group animationDuration="1000ms">
+      <mat-tab label="Tất cả bạn bè">
+        <ng-template matTabContent>
+          <div class="tab-content">
+            <div class="tab-pane active fade show">
+              <ul class="nearby-contct">
+                <li *ngFor="let user of userList.friendList">
+                  <div class="nearly-pepls">
+                    <figure>
+                      <a href="" title=""><img src="{{user.avatarUrl}}" alt=""></a>
+                    </figure>
+                    <div class="pepl-info">
+                      <h4><a href="" title="">{{user.fullName}}</a></h4>
+                      <a (click)="onUnFriend(user.id)" class="add-butn more-action" data-ripple="">Huỷ kết bạn</a>
+                      <a (click)="onBlock(user.id)" class="add-butn" data-ripple="">Chặn</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Lời mời kết bạn">
+        <ng-template matTabContent>
+          <div class="tab-content">
+            <div class="tab-pane active fade show" >
+              <ul class="nearby-contct">
+                <li *ngFor="let user of userList.respList">
+                  <div class="nearly-pepls">
+                    <figure>
+                      <a href="" title=""><img src="{{user.avatarUrl}}" alt=""></a>
+                    </figure>
+                    <div class="pepl-info">
+                      <h4><a href="" title="">{{user.fullName}}</a></h4>
+                      <a (click)="onUnFriend(user.id)" class="add-butn more-action" data-ripple="">Xoá</a>
+                      <a (click)="onAcceptFriend(user.id)" class="add-butn" data-ripple="">Đồng ý</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Lời mời đã gửi">
+        <ng-template matTabContent>
+          <div class="tab-content">
+            <div class="tab-pane active fade show">
+              <ul class="nearby-contct">
+                <li *ngFor="let user of userList.reqList">
+                  <div class="nearly-pepls">
+                    <figure>
+                      <a href="" title=""><img src="{{user.avatarUrl}}" alt=""></a>
+                    </figure>
+                    <div class="pepl-info">
+                      <h4><a href="" title="">{{user.fullName}}</a></h4>
+                      <a (click)="onUnFriend(user.id)" class="add-butn more-action" data-ripple="">Huỷ yêu cầu</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
   </div>
 </div>
+

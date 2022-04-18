@@ -1,9 +1,9 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PostService} from "../../services/post.service";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-post',
@@ -22,15 +22,22 @@ export class PostComponent implements OnInit {
   constructor(private storage: AngularFireStorage,
               private _fb: FormBuilder,
               private postService: PostService,
-              public dialogRef: MatDialogRef<PostComponent>) {
+              public dialogRef: MatDialogRef<PostComponent>,
+              @Inject(MAT_DIALOG_DATA) public editData: any) {
   }
 
   ngOnInit(): void {
     this.formPost = this._fb.group({
-      content:['', Validators.required],
-      image:[''],
+      id:[''],
+      content: ['', Validators.required],
+      image: [''],
       status: ['', Validators.required],
     })
+    if(this.editData) {
+      this.formPost.patchValue(this.editData);
+      this.typeStatus = "Chỉnh sửa bài viết"
+      this.imageUrl = this.editData.image
+    }
   }
 
   uploadFireBase() {
@@ -54,12 +61,14 @@ export class PostComponent implements OnInit {
 
   onPost() {
     const post = {
+      id:this.formPost.value.id,
       content: this.formPost.value.content,
       image: this.imageUrl,
       status: this.formPost.value.status
     }
     this.postService.savePost(this.idUser, post).subscribe(() => {
       this.formPost.reset();
+      this.dialogRef.close()
     })
   }
 }

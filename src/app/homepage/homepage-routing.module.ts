@@ -7,6 +7,7 @@ import {PasswordComponent} from "./password/password.component";
 import {DetailUserComponent} from "./detail-user/detail-user.component";
 import {UpdateInfoComponent} from "./update-info/update-info.component";
 import {FriendComponent} from "./friend/friend.component";
+import {UserTimelineComponent} from "./user-timeline/user-timeline.component";
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
         component: FriendComponent
       }
     ]
+  },
+  {
+    path: ':id',
+    component: UserTimelineComponent
   }
 ];
 
