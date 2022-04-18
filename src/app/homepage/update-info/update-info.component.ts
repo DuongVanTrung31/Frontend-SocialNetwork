@@ -18,24 +18,20 @@ export class UpdateInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserInfo()
-    this.initForm()
-    this.formUpdateInfo.setValue(this.user)
   }
 
   getUserInfo() {
     this.userService.getUserInfo(this.idUser).subscribe((data) => {
       this.user = data;
-    })
-  }
-
-  initForm() {
-    this.formUpdateInfo = this._fb.group({
-      fullName:[''],
-      email:[''],
-      phone:[''],
-      dateOfBirth: [''],
-      address:[''],
-      hobbies:['']
+      console.log(this.user)
+      this.formUpdateInfo = this._fb.group({
+        fullName:[this.user.fullName],
+        email:[this.user.email],
+        phone:[this.user.phone],
+        dateOfBirth: [this.user.dateOfBirth],
+        address:[this.user.address],
+        hobbies:[this.user.hobbies]
+      })
     })
   }
 

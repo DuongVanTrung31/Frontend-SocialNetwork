@@ -4,26 +4,26 @@
 
     <form [formGroup]="formUpdateInfo" (ngSubmit)="onUpdate()">
       <div class="form-group">
-        <input type="text" id="input" required="required" formControlName="fullName">
-        <label class="control-label" for="input">Họ & tên</label><i class="mtrl-select"></i>
+        <input type="text" required="required" formControlName="fullName">
+        <label class="control-label">Họ & tên</label><i class="mtrl-select"></i>
       </div>
       <div class="form-group">
         <input type="text" required="required" formControlName="email">
-        <label class="control-label" for="input">Email</label><i class="mtrl-select"></i>
+        <label class="control-label">Email</label><i class="mtrl-select"></i>
       </div>
       <div class="form-group">
         <input type="text" required="required" formControlName="phone">
-        <label class="control-label" for="input">Số điện thoại </label><i class="mtrl-select"></i>
+        <label class="control-label" >Số điện thoại </label><i class="mtrl-select"></i>
       </div>
       <div class="dob">
         <div class="form-group">
           <input type="date" required="required" formControlName="dateOfBirth">
-          <label class="control-label" for="input">Ngày sinh </label><i class="mtrl-select"></i>
+          <label class="control-label">Ngày sinh </label><i class="mtrl-select"></i>
         </div>
       </div>
       <div class="form-group">
         <input type="text" required="required" formControlName="address">
-        <label class="control-label" for="input">Địa chỉ</label><i class="mtrl-select"></i>
+        <label class="control-label">Địa chỉ</label><i class="mtrl-select"></i>
       </div>
       <div class="form-group">
         <textarea rows="4" required="required" id="textarea" formControlName="hobbies"></textarea>
