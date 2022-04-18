@@ -3,11 +3,11 @@ export interface User {
   username?: string,
   email?: string,
   phone?: string,
-  dateOfBirth?: string,
+  dateOfBirth?: Date,
   gender?: string,
   address?: string,
   fullName?: string,
-  avatarUrl: string,
+  avatarUrl?: string,
   coverImgUrl?: string,
   hobbies?: string
 }

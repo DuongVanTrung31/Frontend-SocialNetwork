@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {RegisterDto} from "../models/dto/register-dto";
 import {ChangePasswordForm} from "../models/dto/change-password-form";
+import {User} from "../models/user";
 
 
 const API = `${environment.urlApi}`
@@ -39,4 +40,7 @@ export class UserService {
     return this.http.get<any>(API + `/requestFromMe/${uid}`)
   }
 
+  updateInfo(uid : number, user : any) :Observable<any> {
+    return this.http.put<any>(API + `/updateInfo/${uid}` , user)
+  }
 }
