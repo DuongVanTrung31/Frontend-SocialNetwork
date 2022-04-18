@@ -138,4 +138,7 @@ export class NewfeedsComponent implements OnInit {
     )
   }
 
+  onEditComment() {
+
+  }
 }
