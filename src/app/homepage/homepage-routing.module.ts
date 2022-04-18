@@ -16,9 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'timeline',
-    component: TimelineComponent,
-    children: [
-    ]
+    component: TimelineComponent
   },
   {
     path: 'info',

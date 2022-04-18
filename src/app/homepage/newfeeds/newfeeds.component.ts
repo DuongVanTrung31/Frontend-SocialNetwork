@@ -108,8 +108,9 @@ export class NewfeedsComponent implements OnInit {
     })
   }
 
-  onTimeline(userId:number) {
-    this.router.navigateByUrl('/home/' + userId)
+  onTimeline(targetId:number) {
+    targetId == this.idUser ?
+      this.router.navigate(['../timeline']): this.router.navigateByUrl('/home/' + targetId)
   }
 
   onDelPost(postId:number| undefined) {

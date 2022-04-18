@@ -98,13 +98,20 @@
   margin-top: 3px;
   margin-bottom: 0;
   margin-left: 10px;
+  cursor: pointer;
+}
+
+.post__topInfo h3:hover {
+  text-decoration: underline;
 }
 
 .post__topInfo p {
   margin-left: 10px;
   font-size: small;
   color: gray;
+
 }
+
 
 .post__action {
   align-self: stretch;
@@ -163,6 +170,7 @@
 
 .we-comment a:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .comment__action {

@@ -1,1 +1,54 @@
-<p>work</p>
+<app-navbar></app-navbar>
+<section style="margin-top: 20px">
+  <div class="feature-photo">
+    <figure>
+      <img src="assets/images/timeline-1.jpg" alt="ảnh bìa">
+    </figure>
+        <div class="add-btn">
+          <a href="#" title="" data-ripple="">Add Friend</a>
+        </div>
+    <div class="container-fluid">
+      <div class="row merged">
+        <div class="col-lg-2 col-sm-3">
+          <div class="user-avatar">
+            <figure>
+              <img src="{{targetUser.avatarUrl}}" alt="">
+            </figure>
+          </div>
+        </div>
+        <div class="col-lg-10 col-sm-9">
+          <div class="timeline-info">
+            <ul>
+              <li class="admin-name">
+                <h5>{{targetUser.fullName}}</h5>
+              </li>
+              <li>
+                <a routerLink="../timeline" title="" >Bài viết</a>
+                <a routerLink="../info/friend" title="">Bạn bè</a>
+                <a routerLink="../info" title="">Giới thiệu</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="gap gray-bg">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row" id="page-contents">
+            <div class="col-lg-3">
+
+            </div>
+            <div class="col-lg-7">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

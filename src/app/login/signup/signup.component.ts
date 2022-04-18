@@ -22,9 +22,9 @@ export class SignupComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
               private authService: AuthenticationService) {
-    if(localStorage.getItem("ACCESS_TOKEN") != null) {
-      this.router.navigate(['/home']).then()
-    }
+    // if(localStorage.getItem("ACCESS_TOKEN") != null) {
+    //   this.router.navigate(['/home']).then()
+    // }
   }
 
   ngOnInit(): void {

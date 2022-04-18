@@ -3,7 +3,7 @@
     <div class="personal">
       <h5 class="f-title"><i class="fa fa-user-circle"></i> Thông tin cá nhân</h5>
       <p>
-        {{user.fullName}} là một người sống nội tâm yêu màu tím ghét sự giả dối
+        <span>{{user.fullName}}</span> là một người sống nội tâm yêu màu tím và ghét sự giả dối
       </p>
     </div>
     <div class="d-flex flex-row mt-2">
@@ -11,7 +11,7 @@
         <div class="tab-pane fade show active" id="basic">
           <ul class="basics">
             <li><i class="fa-solid fa-user-check"></i>{{user.fullName}}</li>
-            <li><i class="fa-solid fa-location-dot"></i>đang sống tại {{user.address}}</li>
+            <li><i class="fa-solid fa-location-dot"></i>Đến từ <span>{{user.address}}</span></li>
             <li><i class="fa-solid fa-mobile-screen-button"></i>{{user.phone}}</li>
             <li><i class="fa-solid fa-envelope"></i>{{user.email}}</li>
             <li><i class="fa-solid fa-cake-candles"></i>{{user.dateOfBirth}}</li>

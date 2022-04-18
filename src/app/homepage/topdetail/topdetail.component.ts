@@ -8,6 +8,7 @@ import {User} from "../../models/user";
 })
 export class TopdetailComponent implements OnInit {
   @Input() user!: User
+  id = parseInt(<string>localStorage.getItem("ID"))
   constructor() { }
 
   ngOnInit(): void {
