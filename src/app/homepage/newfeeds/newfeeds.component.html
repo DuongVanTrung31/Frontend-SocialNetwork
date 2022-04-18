@@ -102,16 +102,17 @@
             </button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="onDelComment(comment.id)">
-                <mat-icon>delete_outline</mat-icon>
-                <span>Xoá bình luận</span>
+                <span>Xoá</span>
               </button>
-              <button mat-menu-item (click)="onEditPostDialog(feed)">
-                <mat-icon>edit</mat-icon>
-                <span>Sửa bình luận</span>
+              <button mat-menu-item (click)="onEditComment()">
+                <span>Sửa</span>
               </button>
             </mat-menu>
           </div>
           <p>{{comment.content}}</p>
+          <ng-template>
+            <input value="{{comment.content}}">
+          </ng-template>
           <a class="we-reply" (click)="onLikeComment(comment.id)" title="Like">Thích</a>
           <a class="we-reply" title="Reply">Phản hồi</a>
         </div>
