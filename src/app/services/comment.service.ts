@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Comment} from "../models/comment";
+
 
 
 const API = `${environment.urlApi}`
@@ -14,7 +14,7 @@ export class CommentService {
 
   constructor(private http: HttpClient) { }
 
-  saveComment(pid: number| undefined,comment: Comment):Observable<any> {
+  saveComment(pid: number| undefined,comment: any):Observable<any> {
     return this.http.post<any>(API + `/comment/${pid}`, comment)
   }
 

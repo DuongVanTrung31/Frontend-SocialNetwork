@@ -31,4 +31,8 @@ export class FriendService {
   mutualFriends(ownId:number,targetId:number):Observable<any> {
     return this.http.get<any>(API + `/relationShip/MutualFriends/${ownId}/${targetId}`)
   }
+
+  checkRelationship(ownId:number,targetId:number):Observable<any>{
+    return this.http.get<any>(API + `/relationShip/checkRelationship/${ownId}/${targetId}`)
+  }
 }

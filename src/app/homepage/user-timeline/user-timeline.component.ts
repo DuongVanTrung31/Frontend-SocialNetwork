@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute } from "@angular/router";
 import {User} from "../../models/user";
 import {UserService} from "../../services/user.service";
+import {Post} from "../../models/post";
+import {PostService} from "../../services/post.service";
+import {FriendService} from "../../services/friend.service";
+import {LikeService} from "../../services/like.service";
 
 @Component({
   selector: 'app-user-timeline',
@@ -9,21 +13,59 @@ import {UserService} from "../../services/user.service";
   styleUrls: ['./user-timeline.component.css']
 })
 export class UserTimelineComponent implements OnInit {
-  id!: number
-  targetUser!: User
+  idTargetUser!: number;
+  idOwnUser = parseInt(<string>localStorage.getItem("ID"));
+  targetUser!: User;
+  newFeeds!: Post[];
+  relationship!:string;
+
   constructor(private route: ActivatedRoute,
-              private userService:UserService) { }
+              private userService:UserService,
+              private postService: PostService,
+              private friendService:FriendService,
+              private likeService:LikeService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((paramsId:any) => {
-      this.id = +paramsId.id;
+      this.idTargetUser = +paramsId.id;
     });
     this.getInfo();
+    this.checkRelationship();
   }
 
   getInfo() {
-    this.userService.getUserInfo(this.id).subscribe((data) => {
+    this.userService.getUserInfo(this.idTargetUser).subscribe((data) => {
       this.targetUser = data
     })
+  }
+
+  checkRelationship() {
+    this.friendService.checkRelationship(this.idOwnUser,this.idTargetUser).subscribe((data) => {
+      this.relationship = data;
+    })
+  }
+
+  onLikeComment(commentId:number| undefined) {
+    this.likeService.likeComment(commentId, this.idOwnUser).subscribe(() => {
+
+    })
+  }
+
+  onLike(postId:number| undefined) {
+    this.likeService.likePost(postId, this.idOwnUser).subscribe(() => {
+
+    })
+  }
+
+  onAddFriend() {
+    this.friendService.addFriend(this.idOwnUser,this.idTargetUser).subscribe(() => this.ngOnInit())
+  }
+
+  onUnFriend() {
+    this.friendService.unFriend(this.idOwnUser,this.idTargetUser).subscribe(() => this.ngOnInit())
+  }
+
+  onBlock() {
+    this.friendService.blockFriend(this.idOwnUser,this.idTargetUser).subscribe(() => this.ngOnInit())
   }
 }

@@ -1,0 +1,34 @@
+span {
+  font-weight: bolder;
+  font-style: inherit;
+  font-size: 15px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+
+.central-meta {
+  background: #fdfdfd none repeat scroll 0 0;
+  border: 1px solid #0a98dc;
+  border-radius: 15px;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 25px;
+}
+
+.gap {
+  padding: 20px;
+}
+
+.add-btn a {
+  color: #eff2f5;
+}
+
+
+.add-btn a:hover {
+  color: #eff2f5;
+  cursor: pointer;
+  font-size: x-large;
+  padding: 10px 20px;
+}

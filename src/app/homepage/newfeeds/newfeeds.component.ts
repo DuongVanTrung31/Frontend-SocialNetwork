@@ -4,7 +4,6 @@ import {PostService} from "../../services/post.service";
 import {Post} from "../../models/post";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {PostComponent} from "../post/post.component";
-import {Comment} from "../../models/comment";
 import {CommentService} from "../../services/comment.service";
 import {LikeService} from "../../services/like.service";
 import {Router} from "@angular/router";
@@ -64,8 +63,7 @@ export class NewfeedsComponent implements OnInit {
   }
 
   handleComment(pid: number | undefined, $event: string) {
-    const comment:Comment = {
-      likeCommentList: [],
+    const comment = {
       content: $event,
       user: this.user
     }
