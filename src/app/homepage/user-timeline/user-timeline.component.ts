@@ -18,6 +18,7 @@ export class UserTimelineComponent implements OnInit {
   targetUser!: User;
   newFeeds!: Post[];
   relationship!:string;
+  mutualList!: User[];
 
   constructor(private route: ActivatedRoute,
               private userService:UserService,
@@ -32,6 +33,7 @@ export class UserTimelineComponent implements OnInit {
     this.getInfo();
     this.checkRelationship();
     this.getPostListTarget();
+    this.getMutualFriends();
   }
 
   getInfo() {
@@ -48,6 +50,7 @@ export class UserTimelineComponent implements OnInit {
 
   getPostListTarget() {
     this.postService.listPostTarget(this.idOwnUser,this.idTargetUser).subscribe((data) => {
+      console.log(data)
       this.newFeeds = data
     })
   }
@@ -75,4 +78,16 @@ export class UserTimelineComponent implements OnInit {
   onBlock() {
     this.friendService.blockFriend(this.idOwnUser,this.idTargetUser).subscribe(() => this.ngOnInit())
   }
+
+  isLike(likeList: any) {
+    // @ts-ignore
+    return likeList.some(e => e.user.id == this.idOwnUser)
+  }
+
+  getMutualFriends() {
+    this.friendService.mutualFriends(this.idOwnUser,this.idTargetUser).subscribe((data) => {
+        this.mutualList = data;
+    })
+  }
+
 }
