@@ -1,6 +1,6 @@
 <div class="messageSender">
   <div class="messageSender__top">
-    <img class="user__avatar" src="{{user.avatarUrl}}" alt="" routerLink="timeline">
+    <img class="user__avatar" src="{{user.avatarUrl}}" alt="" routerLink="../timeline">
     <form>
       <input class="messageSender__input" placeholder="{{user.fullName}} , bạn đang nghĩ gì thế ?" readonly
              (click)="onPostDialog()">
@@ -71,8 +71,11 @@
   </div>
 
   <div class="post__options">
-    <div class="post__option" (click)="onLike(feed.id)">
-      <span class="material-icons">thumb_up</span>
+    <div class="post__option" (click)="onLike(feed.id)" >
+      <span class="material-icons" style="color: #0a98dc" *ngIf="isLike(feed.likePostList); else elseNot" >thumb_up</span>
+      <ng-template #elseNot>
+        <span class="material-icons" style="color:#8b8b8b;">thumb_up</span>
+      </ng-template>
       <p>Thích</p>
     </div>
     <div class="post__option">

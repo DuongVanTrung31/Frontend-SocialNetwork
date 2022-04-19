@@ -24,7 +24,7 @@ export class NewfeedsComponent implements OnInit {
               private dialog: MatDialog,
               private commentService: CommentService,
               private likeService: LikeService,
-              private router:Router) {
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -68,77 +68,57 @@ export class NewfeedsComponent implements OnInit {
       user: this.user
     }
     this.commentService.saveComment(pid, comment).subscribe(() => {
-      if (this.typePage == "newfeeds") {
-        this.getNewFeeds()
-      } else if (this.typePage == "timeline") {
-        this.getTimeLine()
-      }
+      this.ngOnInit()
     })
   }
 
-  onDelComment(commentId: number| undefined) {
+  onDelComment(commentId: number | undefined) {
     this.commentService.delComment(commentId).subscribe(() => {
-      if (this.typePage == "newfeeds") {
-        this.getNewFeeds()
-      } else if (this.typePage == "timeline") {
-        this.getTimeLine()
-      }
+      this.ngOnInit()
     })
   }
 
-  onLikeComment(commentId:number| undefined) {
+  onLikeComment(commentId: number | undefined) {
     this.likeService.likeComment(commentId, this.idUser).subscribe(() => {
-      if (this.typePage == "newfeeds") {
-        this.getNewFeeds()
-      } else if (this.typePage == "timeline") {
-        this.getTimeLine()
-      }
+      this.ngOnInit()
     })
   }
 
-  onLike(postId:number | undefined) {
+  onLike(postId: number | undefined) {
     this.likeService.likePost(postId, this.idUser).subscribe(() => {
-      if (this.typePage == "newfeeds") {
-        this.getNewFeeds()
-      } else if (this.typePage == "timeline") {
-        this.getTimeLine()
-      }
+      this.ngOnInit()
     })
   }
 
-  onTimeline(targetId:number) {
+  onTimeline(targetId: number) {
     targetId == this.idUser ?
-      this.router.navigate(['../timeline']):
+      this.router.navigate(['/timeline']) :
       this.router.navigateByUrl('/' + targetId)
   }
 
-  onDelPost(postId:number| undefined) {
+  onDelPost(postId: number | undefined) {
     this.postService.deletePost(postId).subscribe(() => {
-      if (this.typePage == "newfeeds") {
-        this.getNewFeeds()
-      } else if (this.typePage == "timeline") {
-        this.getTimeLine()
-      }
+      this.ngOnInit()
     })
   }
 
-  onEditPostDialog(post:Post) {
+  onEditPostDialog(post: Post) {
     const dialogConfig = new MatDialogConfig()
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
     dialogConfig.data = post
     this.dialog.open(PostComponent, dialogConfig)
       .afterClosed().subscribe(() => {
-        if (this.typePage == "newfeeds") {
-          this.getNewFeeds()
-        } else if (this.typePage == "timeline") {
-          this.getTimeLine()
-        }
-      }
-    )
+      this.ngOnInit()
+    })
   }
 
   onEditComment() {
 
+  }
+
+  isLike(likeList: any) {
+    // @ts-ignore
+    return likeList.some(e => e.user.id == this.idUser)
   }
 }
