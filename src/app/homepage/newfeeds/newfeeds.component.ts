@@ -50,7 +50,7 @@ export class NewfeedsComponent implements OnInit {
   onPostDialog() {
     const dialogConfig = new MatDialogConfig()
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
+    dialogConfig.width = "50%";
     this.dialog.open(PostComponent, dialogConfig)
       .afterClosed().subscribe(() => {
         if (this.typePage == "newfeeds") {
@@ -108,7 +108,8 @@ export class NewfeedsComponent implements OnInit {
 
   onTimeline(targetId:number) {
     targetId == this.idUser ?
-      this.router.navigate(['../timeline']): this.router.navigateByUrl('/home/' + targetId)
+      this.router.navigate(['../timeline']):
+      this.router.navigateByUrl('/' + targetId)
   }
 
   onDelPost(postId:number| undefined) {
