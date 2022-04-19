@@ -31,6 +31,7 @@ export class UserTimelineComponent implements OnInit {
     });
     this.getInfo();
     this.checkRelationship();
+    this.getPostListTarget();
   }
 
   getInfo() {
@@ -45,15 +46,21 @@ export class UserTimelineComponent implements OnInit {
     })
   }
 
+  getPostListTarget() {
+    this.postService.listPostTarget(this.idOwnUser,this.idTargetUser).subscribe((data) => {
+      this.newFeeds = data
+    })
+  }
+
   onLikeComment(commentId:number| undefined) {
     this.likeService.likeComment(commentId, this.idOwnUser).subscribe(() => {
-
+        this.getPostListTarget()
     })
   }
 
   onLike(postId:number| undefined) {
     this.likeService.likePost(postId, this.idOwnUser).subscribe(() => {
-
+      this.getPostListTarget()
     })
   }
 

@@ -971,9 +971,9 @@ header.sticky {
 }
 
 .add-btn {
-  bottom: 100px;
+  bottom: 150px;
   position: absolute;
-  right: 43px;
+  right: 60px;
 }
 
 .add-btn > span {

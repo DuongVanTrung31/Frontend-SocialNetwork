@@ -31,4 +31,8 @@ export class PostService {
   deletePost(postId:number|undefined):Observable<any> {
     return this.http.delete(API + `/post/${postId}`)
   }
+
+  listPostTarget(uid:number, targetId:number):Observable<any> {
+    return this.http.get(API + `/post/listStatus/${uid}/${targetId}`)
+  }
 }
