@@ -33,9 +33,9 @@
                 <h5>{{user.fullName}}</h5>
               </li>
               <li>
-                <a routerLink="../timeline" title="" >Bài viết</a>
-                <a routerLink="../info/friend" title="">Bạn bè</a>
-                <a routerLink="../info" title="">Giới thiệu</a>
+                <a [routerLink]="['/timeline']" title="" >Bài viết</a>
+                <a [routerLink]="['/info/friend']" title="">Bạn bè</a>
+                <a [routerLink]="['/info']" title="">Giới thiệu</a>
               </li>
             </ul>
           </div>

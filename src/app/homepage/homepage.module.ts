@@ -26,6 +26,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import { FeedsTargetComponent } from './feeds-target/feeds-target.component';
+import { FriendTargetComponent } from './friend-target/friend-target.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { FeedsTargetComponent } from './feeds-target/feeds-target.component';
     FriendComponent,
     UserTimelineComponent,
     FeedsTargetComponent,
+    FriendTargetComponent,
   ],
   imports: [
     CommonModule,
