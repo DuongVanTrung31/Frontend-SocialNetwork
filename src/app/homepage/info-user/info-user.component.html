@@ -13,19 +13,15 @@
                   <ul class="naves">
                     <li>
                       <i class="material-icons">person_outline</i>
-                      <a title="" routerLink="../info">Thông tin cá nhân</a>
+                      <a title="" [routerLink]="['/info']">Thông tin cá nhân</a>
                     </li>
                     <li>
                       <i class="material-icons">manage_accounts</i>
-                      <a title="" routerLink="update">Cập nhật thông tin</a>
-                    </li>
-                    <li>
-                      <i class="material-icons">settings</i>
-                      <a title="" href="edit-account-setting.html">Cài đặt tài khoản</a>
+                      <a title="" [routerLink]="['/info/update']">Cập nhật thông tin</a>
                     </li>
                     <li>
                       <i class="material-icons">sync_lock</i>
-                      <a title="" routerLink="password">Đổi mật khẩu</a>
+                      <a title="" [routerLink]="['/info/password']">Đổi mật khẩu</a>
                     </li>
                   </ul>
                 </div>

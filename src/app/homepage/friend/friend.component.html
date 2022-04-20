@@ -9,10 +9,10 @@
                 <li *ngFor="let user of userList.friendList">
                   <div class="nearly-pepls">
                     <figure>
-                      <a href="" title=""><img src="{{user.avatarUrl}}" alt=""></a>
+                      <a [routerLink]="['/target/',user.id]"><img src="{{user.avatarUrl}}" alt=""></a>
                     </figure>
                     <div class="pepl-info">
-                      <h4><a href="" title="">{{user.fullName}}</a></h4>
+                      <h4><a [routerLink]="['/target/',user.id]">{{user.fullName}}</a></h4>
                       <a (click)="onUnFriend(user.id)" class="add-butn more-action" data-ripple="">Huỷ kết bạn</a>
                       <a (click)="onBlock(user.id)" class="add-butn" data-ripple="">Chặn</a>
                     </div>
@@ -31,10 +31,10 @@
                 <li *ngFor="let user of userList.respList">
                   <div class="nearly-pepls">
                     <figure>
-                      <a href="" title=""><img src="{{user.avatarUrl}}" alt=""></a>
+                      <a [routerLink]="['/target/',user.id]"><img src="{{user.avatarUrl}}" alt=""></a>
                     </figure>
                     <div class="pepl-info">
-                      <h4><a href="" title="">{{user.fullName}}</a></h4>
+                      <h4><a [routerLink]="['/target/',user.id]">{{user.fullName}}</a></h4>
                       <a (click)="onUnFriend(user.id)" class="add-butn more-action" data-ripple="">Xoá</a>
                       <a (click)="onAcceptFriend(user.id)" class="add-butn" data-ripple="">Đồng ý</a>
                     </div>
@@ -53,10 +53,10 @@
                 <li *ngFor="let user of userList.reqList">
                   <div class="nearly-pepls">
                     <figure>
-                      <a href="" title=""><img src="{{user.avatarUrl}}" alt=""></a>
+                      <a [routerLink]="['/target/',user.id]"><img src="{{user.avatarUrl}}" alt=""></a>
                     </figure>
                     <div class="pepl-info">
-                      <h4><a href="" title="">{{user.fullName}}</a></h4>
+                      <h4><a [routerLink]="['/target/',user.id]">{{user.fullName}}</a></h4>
                       <a (click)="onUnFriend(user.id)" class="add-butn more-action" data-ripple="">Huỷ lời mời</a>
                     </div>
                   </div>

@@ -27,6 +27,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import { FeedsTargetComponent } from './feeds-target/feeds-target.component';
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
+import { FriendTargetComponent } from './friend-target/friend-target.component';
+import {SidebarWidgetComponent} from "../common/sidebar-widget/sidebar-widget.component";
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     FriendComponent,
     UserTimelineComponent,
     FeedsTargetComponent,
+    FriendTargetComponent,
+    SidebarWidgetComponent
     MatConfirmDialogComponent,
   ],
   imports: [

@@ -55,11 +55,7 @@ export class NewfeedsComponent implements OnInit {
     dialogConfig.width = "50%";
     this.dialog.open(PostComponent, dialogConfig)
       .afterClosed().subscribe(() => {
-        if (this.typePage == "newfeeds") {
-          this.getNewFeeds()
-        } else if (this.typePage == "timeline") {
-          this.getTimeLine()
-        }
+        this.ngOnInit()
       }
     )
   }
@@ -85,6 +81,10 @@ export class NewfeedsComponent implements OnInit {
     });
   }
 
+  onEditComment() {
+
+  }
+
   onLikeComment(commentId: number | undefined) {
     this.likeService.likeComment(commentId, this.idUser).subscribe(() => {
       this.ngOnInit()
@@ -100,7 +100,7 @@ export class NewfeedsComponent implements OnInit {
   onTimeline(targetId: number) {
     targetId == this.idUser ?
       this.router.navigate(['/timeline']) :
-      this.router.navigateByUrl('/' + targetId)
+      this.router.navigateByUrl('/target/' + targetId)
   }
 
   onDelPost(postId: number | undefined) {
@@ -123,10 +123,6 @@ export class NewfeedsComponent implements OnInit {
       .afterClosed().subscribe(() => {
       this.ngOnInit()
     })
-  }
-
-  onEditComment() {
-
   }
 
   isLike(likeList: any) {

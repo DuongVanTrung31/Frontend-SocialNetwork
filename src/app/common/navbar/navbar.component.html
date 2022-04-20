@@ -1,6 +1,6 @@
 <div class="header">
   <div class="header__left">
-    <a routerLink="../home">
+    <a [routerLink]="['/home']">
       <img src="/assets/images/z3340769601394_e6d4ccc4fbe271d6caadd45184b6c32c.jpg" alt="">
     </a>
     <div class="header__input">
@@ -9,16 +9,16 @@
     </div>
   </div>
   <div class="header__middle">
-    <div class="header__option">
-      <a title="Trang chủ" routerLink="../home"><i class="material-icons">home</i></a>
+    <div class="header__option" [routerLink]="['/home']">
+      <a title="Trang chủ" ><i class="material-icons">home</i></a>
     </div>
-    <div class="header__option">
-      <a title="Bạn bè" routerLink="../info/friend"><i class="material-icons">people_alt</i></a>
+    <div class="header__option" [routerLink]="['/info/friend']">
+      <a title="Bạn bè" ><i class="material-icons">people_alt</i></a>
     </div>
   </div>
   <div class="header__right">
     <div class="header__info">
-      <a routerLink="../timeline">
+      <a [routerLink]="['/timeline']">
         <img class="user__avatar" src="{{user.avatarUrl}} " alt="">
         <h4>{{user.fullName}}</h4>
       </a>
