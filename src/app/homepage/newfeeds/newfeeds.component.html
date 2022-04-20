@@ -1,6 +1,6 @@
 <div class="messageSender">
   <div class="messageSender__top">
-    <img class="user__avatar" src="{{user.avatarUrl}}" alt="" routerLink="../timeline">
+    <img class="user__avatar" src="{{user.avatarUrl}}" alt="" [routerLink]="['/timeline']">
     <form>
       <input class="messageSender__input" placeholder="{{user.fullName}} , bạn đang nghĩ gì thế ?" readonly
              (click)="onPostDialog()">
@@ -107,7 +107,7 @@
               <button mat-menu-item (click)="onDelComment(comment.id)">
                 <span>Xoá</span>
               </button>
-              <button mat-menu-item (click)="onEditComment()">
+              <button mat-menu-item (click)="onEditComment(comment)">
                 <span>Sửa</span>
               </button>
             </mat-menu>

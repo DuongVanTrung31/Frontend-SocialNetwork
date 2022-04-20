@@ -23,6 +23,7 @@
     </div>
     <ng-container *ngIf="imageUrl!= ''">
       <div align="center" style="height: 300px; width: 100%; margin-top: 20px">
+        <mat-icon id="close-icon" (click)="delImage()">close</mat-icon>
         <img [src]="imageUrl" alt="" style="width: 100%; height: 100%">
       </div>
     </ng-container>

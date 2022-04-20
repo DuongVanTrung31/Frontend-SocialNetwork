@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PostService} from "../../services/post.service";
 import {ResponseSearch} from "../../models/dto/response-search";
 import {LikeService} from "../../services/like.service";
 import {CommentService} from "../../services/comment.service";
+import {CommentComponent} from "../comment/comment.component";
+import {Comment} from "../../models/comment";
 
 @Component({
   selector: 'app-search-filter',
@@ -14,6 +16,8 @@ export class SearchFilterComponent implements OnInit {
   search!:string;
   responseSearch!:ResponseSearch
   id = parseInt(<string>localStorage.getItem("ID"));
+  @ViewChild(CommentComponent)
+  child!: CommentComponent;
   constructor(private route: ActivatedRoute,
               private postService: PostService,
               private likeService:LikeService,
@@ -22,11 +26,12 @@ export class SearchFilterComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       this.search = params['name'];
-    })
-    this.postService.search(this.id,this.search).subscribe(data => {
-      this.responseSearch = data
+      this.postService.search(this.id,this.search).subscribe(data => {
+        this.responseSearch = data
+      })
     })
   }
+
 
   onLikeComment(commentId:number| undefined) {
     this.likeService.likeComment(commentId, this.id).subscribe(() => {
@@ -43,14 +48,8 @@ export class SearchFilterComponent implements OnInit {
     return likeList.some(e => e.user.id == this.id)
   }
 
-  handleComment(pid: number | undefined, $event: string) {
-    const comment = {
-      content: $event,
-      user: {
-        id: this.id
-      }
-    }
-    this.commentService.saveComment(pid, comment).subscribe(() => {
+  handleComment(pid: number | undefined, $event: Comment) {
+    this.commentService.saveComment(pid, $event).subscribe(() => {
       this.ngOnInit()
     })
   }
@@ -61,7 +60,8 @@ export class SearchFilterComponent implements OnInit {
     })
   }
 
-  onEditComment() {
-
+  onEditComment(comment: Comment) {
+    this.child.editComment(comment)
   }
+
 }

@@ -13,11 +13,7 @@
                 <div class="frnds">
                   <mat-tab-group>
                     <mat-tab label="Mọi người">
-                      <ng-template matTabContent [ngIf]="responseSearch.users.length == 0">
-                        <br>
-                        <h3>Không tìm thấy người dùng nào trùng tên theo kết quả tìm kiếm</h3>
-                      </ng-template>
-                      <ng-template matTabContent [ngIf]="responseSearch.users.length > 0">
+                      <ng-template matTabContent>
                         <div class="tab-content">
                           <div class="tab-pane active fade show">
                             <ul class="nearby-contct">
@@ -115,7 +111,7 @@
                               <button mat-menu-item (click)="onDelComment(comment.id)">
                                 <span>Xoá</span>
                               </button>
-                              <button mat-menu-item (click)="onEditComment()">
+                              <button mat-menu-item (click)="onEditComment(comment)">
                                 <span>Sửa</span>
                               </button>
                             </mat-menu>

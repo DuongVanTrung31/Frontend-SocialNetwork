@@ -37,6 +37,6 @@ export class PostService {
   }
 
   search(uid:number, search:string): Observable<any> {
-    return this.http.get(API + `/post/search?uid=${uid}&search=${search}`)
+    return this.http.get(API + `/post/search`,{params:{uid:uid,search:search}})
   }
 }

@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {User} from "../../models/user";
 import {FormControl, FormGroup} from "@angular/forms";
 import {UserService} from "../../services/user.service";
+import {Comment} from "../../models/comment";
 
 
 @Component({
@@ -12,8 +13,9 @@ import {UserService} from "../../services/user.service";
 export class CommentComponent implements OnInit {
   user!: User;
   idOwnUser = parseInt(<string>localStorage.getItem("ID"));
-  @Output() commentEvent = new EventEmitter<string>()
+  @Output() commentEvent = new EventEmitter<Comment>()
   formComment: FormGroup = new FormGroup({
+    id: new FormControl(""),
     content: new FormControl("")
   })
   constructor(private userService:UserService) { }
@@ -23,7 +25,18 @@ export class CommentComponent implements OnInit {
   }
 
   handleEnter() {
-    this.commentEvent.emit(this.formComment.value.content);
+    const comment:Comment = {
+      id:this.formComment.value.id,
+      content: this.formComment.value.content,
+      likeCommentList: [],
+      user: this.user,
+    }
+    this.commentEvent.emit(comment);
     this.formComment.reset();
+  }
+
+
+  editComment(comment:Comment) {
+    this.formComment.patchValue(comment)
   }
 }
