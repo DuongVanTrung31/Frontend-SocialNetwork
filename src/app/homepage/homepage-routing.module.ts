@@ -10,6 +10,7 @@ import {FriendComponent} from "./friend/friend.component";
 import {UserTimelineComponent} from "./user-timeline/user-timeline.component";
 import {FeedsTargetComponent} from "./feeds-target/feeds-target.component";
 import {FriendTargetComponent} from "./friend-target/friend-target.component";
+import {SearchFilterComponent} from "./search-filter/search-filter.component";
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'search',
+    component: SearchFilterComponent
+  }
 ];
 
 @NgModule({

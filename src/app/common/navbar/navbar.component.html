@@ -4,8 +4,10 @@
       <img src="/assets/images/z3340769601394_e6d4ccc4fbe271d6caadd45184b6c32c.jpg" alt="">
     </a>
     <div class="header__input">
+      <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
       <i class="material-icons"> search </i>
-      <input type="text" placeholder="Nhập từ tìm kiếm">
+      <input type="text" placeholder="Nhập từ tìm kiếm" formControlName="nameSearch">
+      </form>
     </div>
   </div>
   <div class="header__middle">

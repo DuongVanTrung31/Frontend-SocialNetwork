@@ -41,6 +41,10 @@
   outline-width: 0;
 }
 
+.header__input i {
+
+}
+
 .header__middle {
   display: flex;
   flex: 1;

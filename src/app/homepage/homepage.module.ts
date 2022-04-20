@@ -28,6 +28,8 @@ import {MatMenuModule} from "@angular/material/menu";
 import { FeedsTargetComponent } from './feeds-target/feeds-target.component';
 import { FriendTargetComponent } from './friend-target/friend-target.component';
 import {SidebarWidgetComponent} from "../common/sidebar-widget/sidebar-widget.component";
+import { SearchFilterComponent } from './search-filter/search-filter.component';
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import {SidebarWidgetComponent} from "../common/sidebar-widget/sidebar-widget.co
     UserTimelineComponent,
     FeedsTargetComponent,
     FriendTargetComponent,
-    SidebarWidgetComponent
+    SidebarWidgetComponent,
+    SearchFilterComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +64,8 @@ import {SidebarWidgetComponent} from "../common/sidebar-widget/sidebar-widget.co
     MatButtonModule,
     MatTabsModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule
   ]
 })
 export class HomepageModule { }

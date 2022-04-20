@@ -35,4 +35,8 @@ export class PostService {
   listPostTarget(uid:number, targetId:number):Observable<any> {
     return this.http.get(API + `/post/listStatus/${uid}/${targetId}`)
   }
+
+  search(uid:number, search:string): Observable<any> {
+    return this.http.get(API + `/post/search?uid=${uid}&search=${search}`)
+  }
 }
