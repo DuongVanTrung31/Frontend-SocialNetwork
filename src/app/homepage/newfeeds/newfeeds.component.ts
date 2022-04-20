@@ -74,6 +74,10 @@ export class NewfeedsComponent implements OnInit {
     })
   }
 
+  onEditComment() {
+
+  }
+
   onLikeComment(commentId: number | undefined) {
     this.likeService.likeComment(commentId, this.idUser).subscribe(() => {
       this.ngOnInit()
@@ -107,10 +111,6 @@ export class NewfeedsComponent implements OnInit {
       .afterClosed().subscribe(() => {
       this.ngOnInit()
     })
-  }
-
-  onEditComment() {
-
   }
 
   isLike(likeList: any) {

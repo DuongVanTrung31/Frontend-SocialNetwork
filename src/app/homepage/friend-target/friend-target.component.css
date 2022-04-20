@@ -1,0 +1,13 @@
+.pepl-info a {
+  cursor: pointer;
+  color: #eff2f5;
+}
+
+.pepl-info h4 a {
+  cursor: pointer;
+  color: black;
+}
+
+.pepl-info a:hover {
+  text-decoration: underline;
+}
