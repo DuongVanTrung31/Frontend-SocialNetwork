@@ -1704,7 +1704,7 @@ li.post-comment .comet-avatar {
   width: 93%;
 }
 
-.post-comt-box form textarea {
+.post-comt-box form input {
   background: #eff2f5 none repeat scroll 0 0;
   border-color: transparent;
   border-radius: 50px;
@@ -1715,6 +1715,8 @@ li.post-comment .comet-avatar {
   line-height: 16px;
   outline-width: 0;
   flex: 1;
+  width: 100%;
+  padding: 15px;
 }
 
 .add-smiles {
