@@ -7,6 +7,7 @@ import {PostComponent} from "../post/post.component";
 import {CommentService} from "../../services/comment.service";
 import {LikeService} from "../../services/like.service";
 import {Router} from "@angular/router";
+import {DialogService} from "../../services/dialog-service";
 
 @Component({
   selector: 'app-newfeeds',
@@ -24,7 +25,8 @@ export class NewfeedsComponent implements OnInit {
               private dialog: MatDialog,
               private commentService: CommentService,
               private likeService: LikeService,
-              private router: Router) {
+              private router: Router,
+              private dialogService : DialogService) {
   }
 
   ngOnInit(): void {
@@ -69,9 +71,14 @@ export class NewfeedsComponent implements OnInit {
   }
 
   onDelComment(commentId: number | undefined) {
-    this.commentService.delComment(commentId).subscribe(() => {
-      this.ngOnInit()
-    })
+    this.dialogService.openConfirmDialog('Bạn muốn xóa bình luận này ?')
+      .afterClosed().subscribe(res =>{
+      if(res){
+        this.commentService.delComment(commentId).subscribe(() => {
+          this.ngOnInit()
+        });
+      }
+    });
   }
 
   onEditComment() {
@@ -97,9 +104,14 @@ export class NewfeedsComponent implements OnInit {
   }
 
   onDelPost(postId: number | undefined) {
-    this.postService.deletePost(postId).subscribe(() => {
-      this.ngOnInit()
-    })
+    this.dialogService.openConfirmDialog('Bạn muốn xóa bài viết này ?')
+      .afterClosed().subscribe(res =>{
+      if(res){
+        this.postService.deletePost(postId).subscribe(() => {
+          this.ngOnInit()
+        });
+      }
+    });
   }
 
   onEditPostDialog(post: Post) {
