@@ -52,6 +52,9 @@
                       <div class="post__topInfo">
                         <h3>{{feed.user.fullName}}</h3>
                         <p>{{feed.createdDate | date:'short'  }}</p>
+                        <mat-icon *ngIf="feed.status == 'PUBLIC'">public</mat-icon>
+                        <mat-icon *ngIf="feed.status == 'FRIENDS'">people</mat-icon>
+                        <mat-icon *ngIf="feed.status == 'PRIVATE'">lock</mat-icon>
                       </div>
                     </div>
                   </div>
