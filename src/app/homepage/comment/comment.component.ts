@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from "../../models/user";
 import {FormControl, FormGroup} from "@angular/forms";
-import {Comment} from "../../models/comment";
+import {UserService} from "../../services/user.service";
 
 
 @Component({
@@ -10,14 +10,16 @@ import {Comment} from "../../models/comment";
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
-  @Input() user!: User;
+  user!: User;
+  idOwnUser = parseInt(<string>localStorage.getItem("ID"));
   @Output() commentEvent = new EventEmitter<string>()
   formComment: FormGroup = new FormGroup({
     content: new FormControl("")
   })
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
+    this.userService.getUserInfo(this.idOwnUser).subscribe(data => this.user = data)
   }
 
   handleEnter() {

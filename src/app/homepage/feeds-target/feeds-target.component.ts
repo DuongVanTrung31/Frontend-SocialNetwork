@@ -3,6 +3,7 @@ import {PostService} from "../../services/post.service";
 import {LikeService} from "../../services/like.service";
 import {ActivatedRoute} from "@angular/router";
 import {Post} from "../../models/post";
+import {CommentService} from "../../services/comment.service";
 
 @Component({
   selector: 'app-feeds-target',
@@ -15,7 +16,8 @@ export class FeedsTargetComponent implements OnInit {
   newFeeds!: Post[];
   constructor(private postService: PostService,
               private likeService: LikeService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private commentService :CommentService) {
   }
 
   ngOnInit(): void {
@@ -43,5 +45,27 @@ export class FeedsTargetComponent implements OnInit {
   isLike(likeList: any) {
     // @ts-ignore
     return likeList.some(e => e.user.id == this.idOwnUser)
+  }
+
+  handleComment(pid: number | undefined, $event: string) {
+    const comment = {
+      content: $event,
+      user: {
+        id: this.idOwnUser
+      }
+    }
+    this.commentService.saveComment(pid, comment).subscribe(() => {
+      this.getPostListTarget()
+    })
+    }
+
+  onDelComment(commentId: number | undefined) {
+    this.commentService.delComment(commentId).subscribe(() => {
+      this.getPostListTarget()
+    })
+  }
+
+  onEditComment() {
+
   }
 }

@@ -51,7 +51,7 @@ const routes: Routes = [
         component: FeedsTargetComponent
       },
       {
-        path: 'friends',
+        path: 'friends/:id',
         component: FriendTargetComponent
       }
     ]

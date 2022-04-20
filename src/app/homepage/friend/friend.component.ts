@@ -32,9 +32,7 @@ export class FriendComponent implements OnInit {
         reqList
       }
     }).subscribe(data => {
-      this.userList = {
-        ...data
-      }
+      this.userList = data
     })
   }
 
