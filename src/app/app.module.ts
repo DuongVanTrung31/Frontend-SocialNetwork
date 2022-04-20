@@ -26,6 +26,9 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
+  exports: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
