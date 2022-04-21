@@ -15,12 +15,12 @@
         <div class="col-lg-2 col-sm-3">
           <div class="user-avatar">
             <figure>
-              <img src="{{user.avatarUrl}}" alt="">
+              <img [src]="user.avatarUrl" alt="">
               <form class="edit-phto">
                 <i class="fa fa-camera-retro"></i>
                 <label class="fileContainer">
                   Chỉnh sửa ảnh đại diện
-                  <input type="file">
+                  <input #uploadFile type="file" (change)="uploadFireBase()">
                 </label>
               </form>
             </figure>
