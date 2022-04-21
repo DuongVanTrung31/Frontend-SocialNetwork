@@ -43,4 +43,8 @@ export class UserService {
   updateInfo(uid : number, user : any) :Observable<any> {
     return this.http.put<any>(API + `/updateInfo/${uid}` , user)
   }
+
+  updateImg(uid: number, avatar: any):Observable<any> {
+    return this.http.put(API + `/updateImg/${uid}`,avatar)
+  }
 }
