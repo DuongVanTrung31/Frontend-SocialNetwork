@@ -6,6 +6,8 @@ import {Post} from "../../models/post";
 import {CommentService} from "../../services/comment.service";
 import {Comment} from "../../models/comment";
 import {CommentComponent} from "../comment/comment.component";
+import {User} from "../../models/user";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-feeds-target',
@@ -14,6 +16,7 @@ import {CommentComponent} from "../comment/comment.component";
 })
 export class FeedsTargetComponent implements OnInit {
   idTargetUser!: number;
+  user!:User
   idOwnUser = parseInt(<string>localStorage.getItem("ID"));
   newFeeds!: Post[];
   @ViewChild(CommentComponent)
@@ -21,13 +24,15 @@ export class FeedsTargetComponent implements OnInit {
   constructor(private postService: PostService,
               private likeService: LikeService,
               private route: ActivatedRoute,
-              private commentService :CommentService) {
+              private commentService :CommentService,
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
     this.route.params.subscribe((paramsId:any) => {
       this.idTargetUser = +paramsId.id;
     });
+    this.userService.getUserInfo(this.idOwnUser).subscribe(data => this.user = data)
     this.getPostListTarget()
   }
 
