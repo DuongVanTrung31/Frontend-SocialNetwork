@@ -1,0 +1,15 @@
+<aside class="sidebar static">
+  <div class="widget friend-list stick-widget" style="">
+    <h4 class="widget-title">Bạn bè</h4>
+    <ul id="people-list" class="friendz-list ps-container ps-theme-default ps-active-y">
+      <li style="display: inline-block;" *ngFor="let user of listFriend">
+        <figure>
+          <img [routerLink]="['/target/',user.id]" src="{{user.avatarUrl}}" alt="">
+        </figure>
+        <div class="friendz-meta">
+          <a [routerLink]="['/target/',user.id]">{{user.fullName}}</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</aside>

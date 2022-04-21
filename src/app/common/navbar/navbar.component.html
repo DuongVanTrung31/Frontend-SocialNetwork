@@ -4,40 +4,42 @@
       <img src="/assets/images/z3340769601394_e6d4ccc4fbe271d6caadd45184b6c32c.jpg" alt="">
     </a>
     <div class="header__input">
+      <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
       <i class="material-icons"> search </i>
-      <input type="text" placeholder="Nhập từ tìm kiếm">
+      <input type="text" placeholder="Nhập từ tìm kiếm" formControlName="nameSearch">
+      </form>
     </div>
   </div>
   <div class="header__middle">
-    <div class="header__option">
-      <a title="Trang chủ" [routerLink]="['/home']"><i class="material-icons">home</i></a>
+    <div class="header__option" [routerLink]="['/home']">
+      <a title="Trang chủ" ><i class="material-icons">home</i></a>
     </div>
-    <div class="header__option">
-      <a title="Bạn bè" [routerLink]="['/info/friend']"><i class="material-icons">people_alt</i></a>
+    <div class="header__option" [routerLink]="['/info/friend']">
+      <a title="Bạn bè" ><i class="material-icons">people_alt</i></a>
     </div>
   </div>
   <div class="header__right">
     <div class="header__info">
-      <a routerLink="../timeline">
+      <a [routerLink]="['/timeline']">
         <img class="user__avatar" src="{{user.avatarUrl}} " alt="">
         <h4>{{user.fullName}}</h4>
       </a>
       <ul class="setting-area">
         <li>
-          <a href="#" title="Thông báo" data-ripple="">
-            <i class="material-icons">notifications_active</i><sup>20</sup>
+          <a title="Thông báo" data-ripple="">
+            <i class="material-icons">notifications_active</i><sup></sup>
           </a>
         </li>
         <li>
-          <a href="#" title="Tin nhắn" data-ripple="">
-            <i class="fa-brands fa-facebook-messenger" style="font-size: x-large;"></i><sup>12</sup></a>
+          <a title="Tin nhắn" data-ripple="">
+            <i class="fa-brands fa-facebook-messenger" style="font-size: x-large;"></i><sup></sup></a>
         </li>
         <li>
-          <a href="#" title="Chọn thêm" data-ripple="">
-            <i class="material-icons">
-              expand_more
-            </i>
-          </a>
+<!--          <a href="#" title="Chọn thêm" data-ripple="">-->
+<!--            <i class="material-icons">-->
+<!--              expand_more-->
+<!--            </i>-->
+<!--          </a>-->
         </li>
       </ul>
     </div>

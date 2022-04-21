@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {User} from "../../models/user";
 import {PostService} from "../../services/post.service";
 import {Post} from "../../models/post";
@@ -7,6 +7,9 @@ import {PostComponent} from "../post/post.component";
 import {CommentService} from "../../services/comment.service";
 import {LikeService} from "../../services/like.service";
 import {Router} from "@angular/router";
+import {DialogService} from "../../services/dialog-service";
+import {CommentComponent} from "../comment/comment.component";
+import {Comment} from "../../models/comment";
 
 @Component({
   selector: 'app-newfeeds',
@@ -17,14 +20,16 @@ export class NewfeedsComponent implements OnInit {
   @Input() user!: User;
   @Input() typePage!: string;
   idUser = parseInt(<string>localStorage.getItem("ID"))
-
+  @ViewChild(CommentComponent)
+  child!: CommentComponent;
   newFeeds!: Post[]
 
   constructor(private postService: PostService,
               private dialog: MatDialog,
               private commentService: CommentService,
               private likeService: LikeService,
-              private router: Router) {
+              private router: Router,
+              private dialogService: DialogService) {
   }
 
   ngOnInit(): void {
@@ -58,20 +63,25 @@ export class NewfeedsComponent implements OnInit {
     )
   }
 
-  handleComment(pid: number | undefined, $event: string) {
-    const comment = {
-      content: $event,
-      user: this.user
-    }
-    this.commentService.saveComment(pid, comment).subscribe(() => {
+  handleComment(pid: number | undefined, $event: Comment) {
+    this.commentService.saveComment(pid, $event).subscribe(() => {
       this.ngOnInit()
     })
   }
 
   onDelComment(commentId: number | undefined) {
-    this.commentService.delComment(commentId).subscribe(() => {
-      this.ngOnInit()
-    })
+    this.dialogService.openConfirmDialog('Bạn muốn xóa bình luận này ?')
+      .afterClosed().subscribe(res => {
+      if (res) {
+        this.commentService.delComment(commentId).subscribe(() => {
+          this.ngOnInit()
+        });
+      }
+    });
+  }
+
+  onEditComment(comment: Comment) {
+    this.child.editComment(comment)
   }
 
   onLikeComment(commentId: number | undefined) {
@@ -93,9 +103,14 @@ export class NewfeedsComponent implements OnInit {
   }
 
   onDelPost(postId: number | undefined) {
-    this.postService.deletePost(postId).subscribe(() => {
-      this.ngOnInit()
-    })
+    this.dialogService.openConfirmDialog('Bạn muốn xóa bài viết này ?')
+      .afterClosed().subscribe(res => {
+      if (res) {
+        this.postService.deletePost(postId).subscribe(() => {
+          this.ngOnInit()
+        });
+      }
+    });
   }
 
   onEditPostDialog(post: Post) {
@@ -107,10 +122,6 @@ export class NewfeedsComponent implements OnInit {
       .afterClosed().subscribe(() => {
       this.ngOnInit()
     })
-  }
-
-  onEditComment() {
-
   }
 
   isLike(likeList: any) {

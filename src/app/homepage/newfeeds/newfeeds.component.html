@@ -1,6 +1,6 @@
 <div class="messageSender">
   <div class="messageSender__top">
-    <img class="user__avatar" src="{{user.avatarUrl}}" alt="" routerLink="../timeline">
+    <img class="user__avatar" src="{{user.avatarUrl}}" alt="" [routerLink]="['/timeline']">
     <form>
       <input class="messageSender__input" placeholder="{{user.fullName}} , bạn đang nghĩ gì thế ?" readonly
              (click)="onPostDialog()">
@@ -29,6 +29,9 @@
       <div class="post__topInfo">
         <h3 (click)="onTimeline(feed.user.id)">{{feed.user.fullName}}</h3>
         <p>{{feed.createdDate | date:'short'}}</p>
+        <mat-icon *ngIf="feed.status == 'PUBLIC'">public</mat-icon>
+        <mat-icon *ngIf="feed.status == 'FRIENDS'">people</mat-icon>
+        <mat-icon *ngIf="feed.status == 'PRIVATE'">lock</mat-icon>
       </div>
     </div>
     <div class="post__action" *ngIf="feed.user.id == idUser">
@@ -84,7 +87,7 @@
   <div class="post__comment">
     <ul class="we-comet">
       <li class="post-comment">
-        <app-comment [user]="user" (commentEvent)="handleComment(feed.id,$event)"></app-comment>
+        <app-comment (commentEvent)="handleComment(feed.id,$event)"></app-comment>
       </li>
       <li *ngFor="let comment of feed.commentList">
         <div class="comet-avatar">
@@ -104,7 +107,7 @@
               <button mat-menu-item (click)="onDelComment(comment.id)">
                 <span>Xoá</span>
               </button>
-              <button mat-menu-item (click)="onEditComment()">
+              <button mat-menu-item (click)="onEditComment(comment)">
                 <span>Sửa</span>
               </button>
             </mat-menu>
@@ -112,7 +115,6 @@
           <p>{{comment.content}}</p>
           <a class="we-reply" [style.color]="isLike(comment.likeCommentList)?'#0a98dc':'inherit'"
              (click)="onLikeComment(comment.id)" title="Like">Thích</a>
-          <a class="we-reply" title="Reply">Phản hồi</a>
         </div>
       <li>
       </li>

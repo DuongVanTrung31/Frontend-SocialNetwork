@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {User} from "../../models/user";
 import {FormControl, FormGroup} from "@angular/forms";
+import {UserService} from "../../services/user.service";
 import {Comment} from "../../models/comment";
 
 
@@ -10,18 +11,32 @@ import {Comment} from "../../models/comment";
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
-  @Input() user!: User;
-  @Output() commentEvent = new EventEmitter<string>()
+  user!: User;
+  idOwnUser = parseInt(<string>localStorage.getItem("ID"));
+  @Output() commentEvent = new EventEmitter<Comment>()
   formComment: FormGroup = new FormGroup({
+    id: new FormControl(""),
     content: new FormControl("")
   })
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
+    this.userService.getUserInfo(this.idOwnUser).subscribe(data => this.user = data)
   }
 
   handleEnter() {
-    this.commentEvent.emit(this.formComment.value.content);
+    const comment:Comment = {
+      id:this.formComment.value.id,
+      content: this.formComment.value.content,
+      likeCommentList: [],
+      user: this.user,
+    }
+    this.commentEvent.emit(comment);
     this.formComment.reset();
+  }
+
+
+  editComment(comment:Comment) {
+    this.formComment.patchValue(comment)
   }
 }

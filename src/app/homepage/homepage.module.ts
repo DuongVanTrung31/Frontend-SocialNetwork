@@ -25,8 +25,13 @@ import { UserTimelineComponent } from './user-timeline/user-timeline.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
-import { FeedsTargetComponent } from './feeds-target/feeds-target.component';
-import { FriendTargetComponent } from './friend-target/friend-target.component';
+import {FeedsTargetComponent} from "./feeds-target/feeds-target.component";
+import {FriendTargetComponent} from "./friend-target/friend-target.component";
+import {SidebarWidgetComponent} from "../common/sidebar-widget/sidebar-widget.component";
+import {MatConfirmDialogComponent} from "./mat-confirm-dialog/mat-confirm-dialog.component";
+
+import { SearchFilterComponent } from './search-filter/search-filter.component';
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -47,6 +52,10 @@ import { FriendTargetComponent } from './friend-target/friend-target.component';
     UserTimelineComponent,
     FeedsTargetComponent,
     FriendTargetComponent,
+    SidebarWidgetComponent,
+    SearchFilterComponent,
+    SidebarWidgetComponent,
+    MatConfirmDialogComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +68,8 @@ import { FriendTargetComponent } from './friend-target/friend-target.component';
     MatButtonModule,
     MatTabsModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule
   ]
 })
 export class HomepageModule { }

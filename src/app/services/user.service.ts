@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {RegisterDto} from "../models/dto/register-dto";
 import {ChangePasswordForm} from "../models/dto/change-password-form";
-import {User} from "../models/user";
+
 
 
 const API = `${environment.urlApi}`
