@@ -34,9 +34,9 @@ export class PasswordComponent implements OnInit {
     document.querySelector("#err-renewpass").innerHTML = "";
     this.userService.changePassword(this.idUser,changePasswordForm).subscribe(
       data => {
-          this.formPassword.reset()
-          this.toast.success("Đổi mật khẩu thành công","Thành công")
-          this.router.navigate(['../'])
+          this.formPassword.reset();
+          this.toast.success("Cập nhật mật khẩu thành công","Thành công")
+          this.router.navigate(['../']);
       },
       error => {
         if(error.error == 600) {
