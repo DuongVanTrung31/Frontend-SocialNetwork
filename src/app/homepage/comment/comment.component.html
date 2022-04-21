@@ -1,8 +1,8 @@
 <div class="comet-avatar">
-  <img src="{{user.avatarUrl}}" alt="">
+  <img [src]="user.avatarUrl" alt="">
 </div>
 <div class="post-comt-box">
   <form [formGroup]="formComment" (ngSubmit)="handleEnter()" >
-    <input placeholder="Viết bình luận ..." formControlName="content">
+    <input type="text" placeholder="Viết bình luận ..." formControlName="content">
   </form>
 </div>

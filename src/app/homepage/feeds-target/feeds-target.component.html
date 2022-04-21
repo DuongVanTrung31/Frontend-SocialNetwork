@@ -47,7 +47,7 @@
   <div class="post__comment">
     <ul class="we-comet">
       <li class="post-comment">
-        <app-comment (commentEvent)="handleComment(feed.id,$event)"></app-comment>
+        <app-comment [user]="user" (commentEvent)="handleComment(feed.id,$event)"></app-comment>
       </li>
       <li *ngFor="let comment of feed.commentList">
         <div class="comet-avatar">

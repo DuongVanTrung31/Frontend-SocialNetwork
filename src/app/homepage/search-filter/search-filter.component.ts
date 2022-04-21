@@ -6,6 +6,8 @@ import {LikeService} from "../../services/like.service";
 import {CommentService} from "../../services/comment.service";
 import {CommentComponent} from "../comment/comment.component";
 import {Comment} from "../../models/comment";
+import {UserService} from "../../services/user.service";
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-search-filter',
@@ -16,18 +18,21 @@ export class SearchFilterComponent implements OnInit {
   search!:string;
   responseSearch!:ResponseSearch
   id = parseInt(<string>localStorage.getItem("ID"));
+  user!:User
   @ViewChild(CommentComponent)
   child!: CommentComponent;
   constructor(private route: ActivatedRoute,
               private postService: PostService,
               private likeService:LikeService,
-              private commentService:CommentService) { }
+              private commentService:CommentService,
+              private userService:UserService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       this.search = params['name'];
       this.postService.search(this.id,this.search).subscribe(data => {
         this.responseSearch = data
+        this.userService.getUserInfo(this.id).subscribe(data => this.user = data)
       })
     })
   }
