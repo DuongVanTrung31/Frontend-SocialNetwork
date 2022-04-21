@@ -3,6 +3,7 @@ import {UserService} from "../../services/user.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ChangePasswordForm} from "../../models/dto/change-password-form";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-password',
@@ -17,7 +18,8 @@ export class PasswordComponent implements OnInit {
     confirmNewPassword : new FormControl('',Validators.required)
   })
   constructor(private userService: UserService,
-              private router:Router) { }
+              private router:Router,
+              private toast:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -33,6 +35,7 @@ export class PasswordComponent implements OnInit {
     this.userService.changePassword(this.idUser,changePasswordForm).subscribe(
       data => {
           this.formPassword.reset()
+          this.toast.success("Đổi mật khẩu thành công","Thành công")
           this.router.navigate(['../'])
       },
       error => {

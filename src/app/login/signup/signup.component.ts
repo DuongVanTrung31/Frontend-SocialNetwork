@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationService} from "../../services/authentication.service";
 import {first} from "rxjs";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-signup',
@@ -21,7 +22,8 @@ export class SignupComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
-              private authService: AuthenticationService) {
+              private authService: AuthenticationService,
+              private toast:ToastrService) {
     // if(localStorage.getItem("ACCESS_TOKEN") != null) {
     //   this.router.navigate(['/home']).then()
     // }
@@ -53,7 +55,7 @@ export class SignupComponent implements OnInit {
           }
         },
         error => {
-          alert("Tài khoản của bạn đã bị khoá hoặc sai mật khẩu!");
+          this.toast.error("Tài khoản không đúng hoặc sai mật khẩu", "Lỗi đăng nhập")
           this.loading = false;
         });
   }

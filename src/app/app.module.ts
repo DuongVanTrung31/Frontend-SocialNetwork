@@ -9,6 +9,7 @@ import {HomepageModule} from "./homepage/homepage.module";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {ToastrModule} from "ngx-toastr";
 
 
 @NgModule({
@@ -24,6 +25,13 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
     BrowserAnimationsModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      progressBar: true
+      }
+    )
   ],
   providers: [],
   exports: [

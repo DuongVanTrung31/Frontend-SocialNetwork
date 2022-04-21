@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {first} from "rxjs";
 import {RegisterDto} from "../../models/dto/register-dto";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,8 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private toastrService:ToastrService
   ) {
   }
 
@@ -49,6 +51,7 @@ export class RegisterComponent implements OnInit {
       )
       .subscribe(
         data => {
+          this.toastrService.success('Đăng ký tài khoản thành công','Thành công')
           this.router.navigate(['../'], {relativeTo: this.route});
         },
         error => {
